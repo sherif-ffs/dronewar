@@ -21,6 +21,3 @@ let myObj;
   xmlhttp.open("GET", "strikes/pakistanStrikes.json", true);
   xmlhttp.send();
 
-
-
-

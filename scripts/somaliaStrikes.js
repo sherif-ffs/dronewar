@@ -18,9 +18,6 @@ let myObj;
     }
   };
   
-  xmlhttp.open("GET", "strikes/pakistanStrikes.json", true);
+  xmlhttp.open("GET", "strikes/somaliaStrikes.json", true);
   xmlhttp.send();
-
-
-
 
