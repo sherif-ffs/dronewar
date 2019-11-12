@@ -9,7 +9,8 @@
     <script defer src="scripts/afghanistanStrikes.js"></script>
     <script defer src="scripts/pakistanStrikes.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/checkbox.css">
+    <link rel="stylesheet" href="styles/selects.css">
     <link rel="stylesheet" href="https://use.typekit.net/kdc6zlh.css">
     <title>Document</title>
 </head>
@@ -27,33 +28,101 @@
                 <h1 class="numberTitle">917 - 1,995</h1>
                 <h3 class="subTitle">CIVILIANS KILLED</h3>
                 <h1 class="numberTitle">286 - 457</h1>
-                <h3 class="subTitle last">CHILDREN KILLED</h3>
+                <h3 class="subTitle">CHILDREN KILLED</h3>
+                <h1 class="numberTitle">2,174 - 3,939</h1>
+                <h3 class="subTitle last">PEOPLE INJURED</h3>
             </div>
             <div class="exploreData tab">
                 <h2 class="sectionHeader">visualize the data</h2>
                 <form action="">
+                    <p>SHOW ME </p>
                     <div class="checkbox-container circular-container">
-                            <div class="input-title">PEOPLE KILLED</div>
+                            <div class="input-title">People Killed</div>
                         <label class="checkbox-label">
-                            <input type="checkbox">
+                            <input type="checkbox" value="killed">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
                     <div class="checkbox-container circular-container">
-                            <div class="input-title">PEOPLED INJURED</div>
+                            <div class="input-title">People Injured</div>
 
                         <label class="checkbox-label">
-                            <input type="checkbox">
+                            <input type="checkbox" value="injured">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>                    
                     <div class="checkbox-container circular-container">
-                            <div class="input-title">NUMBER OF STRIKES</div>
+                            <div class="input-title">Number of Strikes</div>
                         <label class="checkbox-label">
-                            <input type="checkbox">
+                            <input type="checkbox" value="strikes">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
+                <p class="in">IN</p>
+                <div class="select">
+                    <select aria-label="Select menu example">
+                        <option selected>Select Country</option>
+                        <option value="pakistan">Pakistan</option>
+                        <option value="yemen">Yemen</option>
+                        <option value="afghanistan">Afghanistan</option>
+                        <option value="Somalia">Somalia</option>
+                    </select>
+                </div>
+                <div class="bottomRowSelects">
+                    <div class="leftSelect">
+                        <div class="select">
+                            <p>FROM</p>
+                            <select aria-label="Select menu example" class="from">
+                                <option selected>2002</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2006">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rightSelect">
+                            <div class="select">
+                                <p>TO</p>
+                                <select aria-label="Select menu example" class="to">
+                                    <option selected>2019</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2006">2007</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                </select>
+                            </div>
+                    </div>
+                </div>
+                <button>Visualize this data</button>
                 </form>
             </div>
             <div class="search tab">
