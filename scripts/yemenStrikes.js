@@ -1,24 +1,21 @@
 var xmlhttp = new XMLHttpRequest();
-let myObj;
+let yemenStrikes;
+let totalYemenDroneStrikes = 0;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      myObj = JSON.parse(this.responseText);
-      let droneStrikes = myObj.AllUSactions;
-      console.log(droneStrikes);
+      yemenStrikes = JSON.parse(this.responseText);
+      let droneStrikes = yemenStrikes.AllUSactions;
       let totalDeaths = 0;
       let totalCivilianDeaths = 0;
-      for (let i=0; i<droneStrikes.length; i++) {
+      for (let i=0; i<15; i++) {
           let currentObject = droneStrikes[i];
-          totalCivilianDeaths += parseInt(currentObject["Maximum civilians reported killed"])
-          totalDeaths += parseInt(currentObject["Maximum total people killed"]);
+          totalYemenDroneStrikes += parseInt(currentObject["Maximum number of strikes"]);
       }
-      console.log('totalDeaths: ', totalDeaths);
-      console.log('totalCivilianDeaths: ', totalCivilianDeaths);
-  
+      console.log('yemen strikes: ', totalYemenDroneStrikes);
     }
   };
   
-  xmlhttp.open("GET", "strikes/pakistanStrikes.json", true);
+  xmlhttp.open("GET", "strikes/yemenStrikes.json", true);
   xmlhttp.send();
 
 
