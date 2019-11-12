@@ -11,15 +11,6 @@ body {
     /* height: 300vh; */
     background-color: #CE2D4F;
 }
-/* .container h3 {
-    margin-left: 20%;
-    padding-top: 6%;
-    font-size: .8rem;
-    color: #fff;
-    opacity: .6;
-    letter-spacing: 1px;
-    font-family: Arial, Helvetica, sans-serif;
-} */
 .container h1 {
     margin-left: 20%;
     padding-top: 4%;
@@ -78,9 +69,6 @@ body {
     letter-spacing: 0px;
     color: #fff;
     font-family: Avenir;
-}
-.exploreData form {
-    border: 1px solid red;
 }
 .exploreData, .search {
     background-color: #211A1E;
