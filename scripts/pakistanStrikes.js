@@ -1,18 +1,16 @@
 var xmlhttp = new XMLHttpRequest();
 let pakistanStrikes;
-let totalPakistanDroneStrikes = 0;
+let pakistanChildrenDeaths = 0;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       pakistanStrikes = JSON.parse(this.responseText);
       let droneStrikes = pakistanStrikes.AllUSactions;
-      let totalDeaths = 0;
-      let totalCivilianDeaths = 0;
+      let totalPakistanDeaths = 0;
       for (let i=0; i<droneStrikes.length; i++) {
           let currentObject = droneStrikes[i];
-          totalPakistanDroneStrikes =430;
+          pakistanChildrenDeaths += parseInt(currentObject["Maximum children reported killed"]);
       }
-      console.log('pakistan strikes: ', totalPakistanDroneStrikes)
-  
+      console.log('count: ', pakistanChildrenDeaths);
     }
   };
   
