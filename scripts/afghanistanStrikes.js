@@ -8,7 +8,7 @@ let afghanistanChildrenDeaths = 0;
       let totalAfghanDeaths = 0;
       for (let i=0; i<droneStrikes.length; i++) {
           let currentObject = droneStrikes[i];
-          afghanistanChildrenDeaths += parseInt(currentObject["Maximum children reported killed"]);
+          afghanistanChildrenDeaths += parseInt(currentObject["Maximum reported injured"]);
       } 
       console.log('count: ', afghanistanChildrenDeaths);
     }

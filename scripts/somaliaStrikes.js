@@ -9,7 +9,7 @@ let somaliaChildrenDeaths = 0;
       let somaliaDeaths = 0;
       for (let i=0; i<droneStrikes.length; i++) {
           let currentObject = droneStrikes[i];
-          somaliaChildrenDeaths += parseInt(currentObject["Maximum children killed"]);
+          somaliaChildrenDeaths += parseInt(currentObject["Maximum people injured"]);
       }
       console.log('count: ', somaliaChildrenDeaths)
     }
