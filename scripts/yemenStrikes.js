@@ -6,9 +6,13 @@ let yemenChildrenDeaths = 0;
       yemenStrikes = JSON.parse(this.responseText);
       let droneStrikes = yemenStrikes.AllUSactions;
       let totalDeaths = 0;
-      for (let i=0; i<droneStrikes.length; i++) {
-          let currentObject = droneStrikes[i];
-          yemenChildrenDeaths += parseInt(currentObject["Maximum people injured"]);
+      for (let i=0; i< droneStrikes.length; i++) {
+        let currentObject = droneStrikes[i];
+        let year = currentObject.Date.slice(6, 10);
+          if (year > 2002) {
+            console.log('works');
+          }
+         
       }
       console.log('count: ', yemenChildrenDeaths);
     }
@@ -26,4 +30,34 @@ let yemenChildrenDeaths = 0;
     document.querySelector('.yemen').src = 'assets/yemen.svg';
   });
 
+function submitForm() {
+  console.log('submitted')
+}
+document.querySelector('button').addEventListener('click', () => {submitForm();
+});
 
+
+function peopleCasualties(peopleCasualties) {
+  var value = peopleCasualties.checked;
+  console.log('people deaths: ', value);
+}
+function peopleInjured(peopleInjured) {
+  var value = peopleInjured.checked;
+  console.log('people injured: ', value);
+}
+function numberOfStrikes(numberOfStrikes) {
+  var value = numberOfStrikes.checked;
+  console.log('strikes: ', value);
+}
+function doSelectCountry(countrySelect) {
+    var value = countrySelect.value;
+    console.log('country: ', value);
+}
+function doSelectFrom(fromDateSelect) {
+  var value = fromDateSelect.value;
+  console.log('year from: ', value);
+}
+function doSelectTo(toDateSelect) {
+  var value = toDateSelect.value;
+  console.log('year to: ', value);
+}

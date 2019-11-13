@@ -19,6 +19,9 @@
     <div class="container">
         <h1>The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
+        <div class="chartInformation">
+
+        </div>
         <div class="dashboard">
             <div class="currentStatistics tab">
                 <h2 class="sectionHeader">current statistics</h2>
@@ -35,12 +38,12 @@
             </div>
             <div class="exploreData tab">
                 <h2 class="sectionHeader">visualize the data</h2>
-                <form action="">
+                <form method="GET" >
                     <p>SHOW ME </p>
                     <div class="checkbox-container circular-container">
                             <div class="input-title">People Killed</div>
                         <label class="checkbox-label">
-                            <input type="checkbox" value="killed">
+                            <input type="checkbox" class="checkBox" value="1" onchange="peopleCasualties(this)" name="peopleKilled" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
@@ -48,21 +51,20 @@
                             <div class="input-title">People Injured</div>
 
                         <label class="checkbox-label">
-                            <input type="checkbox" value="injured">
+                            <input type="checkbox" class="checkBox" value="1" onchange="peopleInjured(this)" name="peopleInjured" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>                    
                     <div class="checkbox-container circular-container">
                             <div class="input-title">Number of Strikes</div>
                         <label class="checkbox-label">
-                            <input type="checkbox" value="strikes">
+                            <input type="checkbox" class="checkBox" value="1" onchange="numberOfStrikes(this)" name="numStrikes" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
                 <p class="in">IN</p>
                 <div class="select">
-                    <select aria-label="Select menu example">
-                        <option selected>Select Country</option>
+                    <select aria-label="Select menu example" onchange="doSelectCountry(this)" name="location" value="value">
                         <option value="pakistan">Pakistan</option>
                         <option value="yemen">Yemen</option>
                         <option value="afghanistan">Afghanistan</option>
@@ -73,7 +75,7 @@
                     <div class="leftSelect">
                         <div class="select">
                             <p>FROM</p>
-                            <select aria-label="Select menu example" class="from">
+                            <select aria-label="Select menu example" class="from" onchange="doSelectFrom(this)" name="from" value="value">
                                 <option selected>2002</option>
                                 <option value="2002">2002</option>
                                 <option value="2003">2003</option>
@@ -99,7 +101,7 @@
                     <div class="rightSelect">
                             <div class="select">
                                 <p>TO</p>
-                                <select aria-label="Select menu example" class="to">
+                                <select aria-label="Select menu example" class="to" onchange="doSelectTo(this)" name="to" value="value">
                                     <option selected>2019</option>
                                     <option value="2002">2002</option>
                                     <option value="2003">2003</option>
@@ -123,7 +125,7 @@
                             </div>
                     </div>
                 </div>
-                <button>Visualize this data</button>
+                <button type='submit'>Visualize this data</button>
                 </form>
             </div>
         </div>
