@@ -18,5 +18,12 @@ let yemenChildrenDeaths = 0;
   xmlhttp.send();
 
 
+  document.querySelector('.yemen').addEventListener('mouseenter', () => {
+    document.querySelector('.yemen').classList.add('active')
+    document.querySelector('.yemen').src = 'assets/yemenAfter.svg';
+  });
+  document.querySelector('.yemen').addEventListener('mouseleave', () => {
+    document.querySelector('.yemen').src = 'assets/yemen.svg';
+  });
 
 
