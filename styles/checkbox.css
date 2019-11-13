@@ -54,8 +54,11 @@
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     border: 2px solid #CE2D4F;
+    opacity: .6;
 }
-
+.checkbox-custom:hover {
+    opacity: .9;
+}
 
 .checkbox-label input:checked ~ .checkbox-custom {
     background-color: #FFFFFF;
