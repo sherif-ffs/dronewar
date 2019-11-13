@@ -8,6 +8,7 @@
     <script defer src="scripts/somaliaStrikes.js"></script>
     <script defer src="scripts/afghanistanStrikes.js"></script>
     <script defer src="scripts/pakistanStrikes.js"></script>
+    <script defer src="scripts/pullFromBackend.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/checkbox.css">
     <link rel="stylesheet" href="styles/selects.css">
@@ -64,7 +65,7 @@
                     </div>  
                 <p class="in">IN</p>
                 <div class="select">
-                    <select aria-label="Select menu example" onchange="doSelectCountry(this)" name="location" value="value">
+                    <select class="country" aria-label="Select menu example" onchange="doSelectCountry(this)" name="location" value="value">
                         <option value="pakistan">Pakistan</option>
                         <option value="yemen">Yemen</option>
                         <option value="afghanistan">Afghanistan</option>
@@ -125,7 +126,7 @@
                             </div>
                     </div>
                 </div>
-                <button type='submit'>Visualize this data</button>
+                <button type='submit' class="submit">Visualize this data</button>
                 </form>
             </div>
         </div>

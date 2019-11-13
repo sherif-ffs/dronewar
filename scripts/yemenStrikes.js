@@ -4,13 +4,13 @@ let yemenChildrenDeaths = 0;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       yemenStrikes = JSON.parse(this.responseText);
-      let droneStrikes = yemenStrikes.AllUSactions;
+      let droneStrikes = yemenStrikes.yemen;
       let totalDeaths = 0;
       for (let i=0; i< droneStrikes.length; i++) {
         let currentObject = droneStrikes[i];
         let year = currentObject.Date.slice(6, 10);
           if (year > 2002) {
-            console.log('works');
+          
           }
          
       }
@@ -30,11 +30,10 @@ let yemenChildrenDeaths = 0;
     document.querySelector('.yemen').src = 'assets/yemen.svg';
   });
 
-function submitForm() {
-  console.log('submitted')
+function submitForm(value) {
+  console.log('value: ', value)
 }
-document.querySelector('button').addEventListener('click', () => {submitForm();
-});
+
 
 
 function peopleCasualties(peopleCasualties) {
