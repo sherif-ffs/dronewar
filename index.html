@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="styles/checkbox.css">
     <link rel="stylesheet" href="styles/selects.css">
     <link rel="stylesheet" href="https://use.typekit.net/kdc6zlh.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
         <h1>The Drone Program</h1>
-        <p>Real-time and historical data about every reported covert United States drone strike</p>
+        <p>Historical data about every reported covert United States drone strike</p>
         <div class="dashboard">
             <div class="currentStatistics tab">
                 <h2 class="sectionHeader">current statistics</h2>
@@ -126,13 +127,24 @@
                 </form>
             </div>
         </div>
-
+        <h1 class="viewAllData">View All Data<i class="fa fa-arrow-right"></i></h1>
         <h3 class="detailsByCountry">Drone Strikes and details by country</h3>
         <div class="countries">
-            <div class="yemen country">yemen</div>
-            <div class="pakistan country">pakistan</div>
-            <div class="afghanistan country">afghanistan</div>
-            <div class="somalia country">somalia</div>
+            <div class="country">
+                <img src="assets/yemen.svg" alt="yemen" class="yemen">
+                <p>yemen</p></div>
+            <div class="country">
+                <img src="assets/pakistan.svg" alt="pakistan" class="pakistan">
+                <p>pakistan</p>
+            </div>
+            <div class="country">
+                <img src="assets/afghanistan.svg" alt="afghanistan" class="afghanistan">
+                <p>afghanistan</p>
+            </div>
+            <div class="country">
+                <img src="assets/somalia.svg" alt="somalia" class="somalia">
+                <p>somalia</p>
+            </div>
         </div>
     </div>
 </body>
