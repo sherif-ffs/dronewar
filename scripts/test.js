@@ -25,6 +25,15 @@ button.addEventListener('click', (e) => {
           })
           .then(function(json) {
             let products = json.yemen;
+            for (let i=0; i<products.length; i++) {
+            let date = products[i].Date.slice(6,10);
+            if (date >= from && date <= to ) {
+                console.log('strike: ', products[i])
+                console.log('date:',date)
+            }
+            }
+            
+            console.log(products[0].Date.slice(6,10))
             if (displayNumberOfStrikes) {
                 let minimumStrikes = 0;
                 let maximumStrikes = 0;
@@ -32,13 +41,25 @@ button.addEventListener('click', (e) => {
                     minimumStrikes += parseInt(products[i]['Minimum number of strikes']);
                     maximumStrikes += parseInt(products[i]['Maximum number of strikes']);
                 }
-                console.log(`${minimumStrikes} - ${maximumStrikes}`)
+                console.log(`number of strikes:  ${minimumStrikes} - ${maximumStrikes}`);
             }
             if (displayPeopleInjured) {
-                console.log('displayPeopleInjured: ', displayPeopleInjured);
+                let minimumPeopleInjured = 0;
+                let maximumPeopleInjured = 0;
+                for(let i=0; i<products.length; i++) {
+                    minimumPeopleInjured += parseInt(products[i]['Minimum people injured']);
+                    maximumPeopleInjured += parseInt(products[i]['Maximum people injured']);
+                }
+                console.log(`people injured: ${minimumPeopleInjured} - ${maximumPeopleInjured}`);
             }
             if (displayPeopleKilled) {
-                console.log('displayPeopleKilled: ', displayPeopleKilled);
+                let minimumPeopleKilled = 0;
+                let maximumPeopleKilled = 0;
+                for(let i=0; i<products.length; i++) {
+                    minimumPeopleKilled += parseInt(products[i]['Minimum people killed']);
+                    maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
+                }
+                console.log(`people killed: ${minimumPeopleKilled} - ${maximumPeopleKilled}`);
             }
 
           })
