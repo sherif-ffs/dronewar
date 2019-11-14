@@ -4,7 +4,7 @@ let pakistanChildrenDeaths = 0;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       pakistanStrikes = JSON.parse(this.responseText);
-      let droneStrikes = pakistanStrikes.AllUSactions;
+      let droneStrikes = pakistanStrikes.pakistan;
       let totalPakistanDeaths = 0;
       for (let i=0; i<droneStrikes.length; i++) {
           let currentObject = droneStrikes[i];

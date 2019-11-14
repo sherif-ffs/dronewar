@@ -12,9 +12,7 @@ let yemenChildrenDeaths = 0;
           if (year > 2002) {
           
           }
-         
       }
-      console.log('count: ', yemenChildrenDeaths);
     }
   };
   
@@ -31,32 +29,26 @@ let yemenChildrenDeaths = 0;
   });
 
 function submitForm(value) {
-  console.log('value: ', value)
+  console.log('value: ', value);
 }
 
 
 
 function peopleCasualties(peopleCasualties) {
   var value = peopleCasualties.checked;
-  console.log('people deaths: ', value);
 }
 function peopleInjured(peopleInjured) {
   var value = peopleInjured.checked;
-  console.log('people injured: ', value);
 }
 function numberOfStrikes(numberOfStrikes) {
   var value = numberOfStrikes.checked;
-  console.log('strikes: ', value);
 }
 function doSelectCountry(countrySelect) {
     var value = countrySelect.value;
-    console.log('country: ', value);
 }
 function doSelectFrom(fromDateSelect) {
   var value = fromDateSelect.value;
-  console.log('year from: ', value);
 }
 function doSelectTo(toDateSelect) {
   var value = toDateSelect.value;
-  console.log('year to: ', value);
 }
