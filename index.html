@@ -8,7 +8,8 @@
     <script defer src="scripts/somaliaStrikes.js"></script>
     <script defer src="scripts/afghanistanStrikes.js"></script>
     <script defer src="scripts/pakistanStrikes.js"></script>
-    <script defer src="scripts/pullFromBackend.js"></script>
+    <script defer src="scripts/test.js"></script>
+    <script defer src="node/index.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/checkbox.css">
     <link rel="stylesheet" href="styles/selects.css">
@@ -52,14 +53,14 @@
                             <div class="input-title">People Injured</div>
 
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox" value="1" onchange="peopleInjured(this)" name="peopleInjured" value="value">
+                            <input type="checkbox" class="checkBox displayPeopleInjured" value="1" onchange="peopleInjured(this)" name="peopleInjured" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>                    
                     <div class="checkbox-container circular-container">
                             <div class="input-title">Number of Strikes</div>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox" value="1" onchange="numberOfStrikes(this)" name="numStrikes" value="value">
+                            <input type="checkbox" class="checkBox displayNumberOfStrikes" value="1" onchange="numberOfStrikes(this)" name="numStrikes" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
@@ -69,7 +70,7 @@
                         <option value="pakistan">Pakistan</option>
                         <option value="yemen">Yemen</option>
                         <option value="afghanistan">Afghanistan</option>
-                        <option value="Somalia">Somalia</option>
+                        <option value="somalia">Somalia</option>
                     </select>
                 </div>
                 <div class="bottomRowSelects">
@@ -126,7 +127,7 @@
                             </div>
                     </div>
                 </div>
-                <button type='submit' class="submit">Visualize this data</button>
+                <button name="data" type="button" class="submit" value="yemen">Visualize this data</button>
                 </form>
             </div>
         </div>
