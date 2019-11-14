@@ -1,0 +1,15 @@
+.chartInformation {
+    width: 100vw;
+    height: 200vh;
+    background-color: #222;
+    display: flex;
+    border: 1px solid red;
+}
+.chartH2 {
+    margin-top: 5%;
+    margin-left: 10%;
+    font-size: 1.5rem;
+    color: #fafafa;
+    opacity: .8;
+    font-family: Avenir;
+}

@@ -1,16 +1,17 @@
 const button = document.querySelector('button');
 let submitValue;
 let products;
+
 button.addEventListener('click', (e) => {
     let childNodes = e.target.parentElement.childNodes;
     submitValue = childNodes[11].lastElementChild.value;
     // let country = submitValue;
-    let displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
-    let displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
-    let displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
-    let from = document.querySelector('.from').value;
-    let to = document.querySelector('.to').value;
-    let country = document.querySelector('.country').value;
+    displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
+    displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
+    displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
+    from = document.querySelector('.from').value;
+    to = document.querySelector('.to').value;
+    country = document.querySelector('.country').value;
 
     // console.log('displayPeopleKilled: ', displayPeopleKilled);
     // console.log('displayPeopleInjured: ', displayPeopleInjured);
@@ -28,40 +29,73 @@ button.addEventListener('click', (e) => {
             for (let i=0; i<products.length; i++) {
             let date = products[i].Date.slice(6,10);
             if (date >= from && date <= to ) {
-                console.log('strike: ', products[i])
-                console.log('date:',date)
+ 
             }
-            }
-            
-            console.log(products[0].Date.slice(6,10))
+            }   
+            let minimumStrikes = 0;
+            let maximumStrikes = 0;
             if (displayNumberOfStrikes) {
-                let minimumStrikes = 0;
-                let maximumStrikes = 0;
+                
                 for (let i=0; i<products.length; i++) {
                     minimumStrikes += parseInt(products[i]['Minimum number of strikes']);
                     maximumStrikes += parseInt(products[i]['Maximum number of strikes']);
                 }
-                console.log(`number of strikes:  ${minimumStrikes} - ${maximumStrikes}`);
             }
+            let minimumPeopleInjured = 0;
+            let maximumPeopleInjured = 0;
             if (displayPeopleInjured) {
-                let minimumPeopleInjured = 0;
-                let maximumPeopleInjured = 0;
                 for(let i=0; i<products.length; i++) {
                     minimumPeopleInjured += parseInt(products[i]['Minimum people injured']);
                     maximumPeopleInjured += parseInt(products[i]['Maximum people injured']);
                 }
-                console.log(`people injured: ${minimumPeopleInjured} - ${maximumPeopleInjured}`);
             }
+            let minimumPeopleKilled = 0;
+            let maximumPeopleKilled = 0;
             if (displayPeopleKilled) {
-                let minimumPeopleKilled = 0;
-                let maximumPeopleKilled = 0;
+                
                 for(let i=0; i<products.length; i++) {
                     minimumPeopleKilled += parseInt(products[i]['Minimum people killed']);
                     maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
                 }
-                console.log(`people killed: ${minimumPeopleKilled} - ${maximumPeopleKilled}`);
             }
-
+            var ctx = document.getElementById('myChart');
+            let myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            document.querySelector('.chartH2').innerHTML = 'Strikes in Yemen';
           })
           .catch(function(err) {
             console.log('Fetch problem: ' + err.message);

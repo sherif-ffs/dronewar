@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="scripts/yemenStrikes.js"></script>
     <script defer src="scripts/somaliaStrikes.js"></script>
     <script defer src="scripts/afghanistanStrikes.js"></script>
     <script defer src="scripts/pakistanStrikes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js"></script>
     <script defer src="scripts/test.js"></script>
-    <script defer src="node/index.js"></script>
+    <script defer src="scripts/yemenStrikes.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/chartInformation.css">
     <link rel="stylesheet" href="styles/checkbox.css">
     <link rel="stylesheet" href="styles/selects.css">
     <link rel="stylesheet" href="https://use.typekit.net/kdc6zlh.css">
@@ -22,7 +23,8 @@
         <h1>The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
         <div class="chartInformation">
-
+            <h2 class="chartH2"></h2>
+            <canvas id="myChart" width="800" height="800"></canvas>
         </div>
         <div class="dashboard">
             <div class="currentStatistics tab">
@@ -45,7 +47,7 @@
                     <div class="checkbox-container circular-container">
                             <div class="input-title">People Killed</div>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox displayPeopleKilled" value="0" onchange="peopleCasualties(this)" name="peopleKilled" value="value">
+                            <input type="checkbox" class="checkBox displayPeopleKilled" value="0" checked onchange="peopleCasualties(this)" name="peopleKilled" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
@@ -53,14 +55,14 @@
                             <div class="input-title">People Injured</div>
 
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox displayPeopleInjured" value="1" onchange="peopleInjured(this)" name="peopleInjured" value="value">
+                            <input type="checkbox" class="checkBox displayPeopleInjured" value="1" checked onchange="peopleInjured(this)" name="peopleInjured" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>                    
                     <div class="checkbox-container circular-container">
                             <div class="input-title">Number of Strikes</div>
                         <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox displayNumberOfStrikes" value="1" onchange="numberOfStrikes(this)" name="numStrikes" value="value">
+                            <input type="checkbox" class="checkBox displayNumberOfStrikes" value="1" checked onchange="numberOfStrikes(this)" name="numStrikes" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>  
