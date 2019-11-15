@@ -36,8 +36,8 @@ body {
     margin-top:2%;
     margin-left: 5%;
     display: flex;
-    /* height: 600px; */
     flex-basis: 100%;
+    /* padding-bottom: 20px; */
     flex-direction: row;
     border: 3px solid #211A1E;
     box-shadow: 15px 15px #211A1E;
@@ -61,8 +61,7 @@ body {
     color: rgb(80, 21, 34);
 }
 .currentStatistics .last{
-    padding-bottom: 20px;
-
+    padding-bottom: 40px;
 }
 .sectionHeader {
     margin-left: 10%;
@@ -75,6 +74,7 @@ body {
 }
 .exploreData, .search {
     background-color: #211A1E;
+    padding-bottom: 20px;
 }
 .tab {
     display: flex;
@@ -110,7 +110,7 @@ body {
     cursor: pointer;
     opacity: .7active;
     transition: .5s;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     box-shadow: 0px 5px #211A1E;
     border: 5px sold black;
 }
