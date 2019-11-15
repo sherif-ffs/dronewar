@@ -48,8 +48,10 @@ button.addEventListener('click', (e) => {
                     minimumStrikes += parseInt(products[i]['Minimum number of strikes']);
                     maximumStrikes += parseInt(products[i]['Maximum number of strikes']);
                 }
-                document.querySelector('.chartInformation').style.display = 'flex';
-                document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
+              
+                    document.querySelector('.chartInformation').style.display = 'flex';
+                    document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
+                    document.querySelector('#secondChart').style.display = "none";
                 var ctx = document.getElementById('firstChart');
                 let myChart = new Chart(ctx, {
                     type: 'bar',
@@ -109,6 +111,14 @@ button.addEventListener('click', (e) => {
                     minimumPeopleKilled += parseInt(products[i]['Minimum people killed']);
                     maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
                 }
+                console.log('displayNumberOfStrikes: ', displayNumberOfStrikes)
+                if (displayNumberOfStrikes) {
+                    document.querySelector('#firstChart').style.display = "flex";
+                } else {
+                document.querySelector('#firstChart').style.display = "none";
+                }
+                document.querySelector('#secondChart').style.display = "flex";
+
                 new Chart(document.getElementById("secondChart"), {
                     type: 'pie',
                     data: {
@@ -128,9 +138,9 @@ button.addEventListener('click', (e) => {
                 });
             } 
           })
-        //   .catch(function(err) {
-        //     console.log('Fetch problem: ' + err.message);
-        //   });
+          .catch(function(err) {
+            console.log('Fetch problem: ' + err.message);
+          });
 
     }
     
