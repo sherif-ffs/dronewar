@@ -4,9 +4,12 @@ let products;
 const closeButton = document.querySelector('.close');
 closeButton.addEventListener('click', () => {
   document.querySelector('.chartInformation').style.display = 'none';
-  document.querySelector('#thirdChart').style.display = "none";
-  document.querySelector('#firstChart').style.display = "none";
-  document.querySelector('#secondChart').style.display = "none";
+    document.querySelector('#thirdChart').style.display = "none";
+    document.querySelector('#firstChart').style.display = "none";
+    document.querySelector('#secondChart').style.display = "none";
+    document.querySelector('.strikesHeader').style.display = "none";
+    document.querySelector('.deathsHeader').style.display = "none";
+    document.querySelector('.injuriesHeader').style.display = "none";
 
 })
 button.addEventListener('click', (e) => {
@@ -68,7 +71,9 @@ button.addEventListener('click', (e) => {
                     document.querySelector('.injuriesHeader').style.display = "none";
                     document.querySelector('#thirdChart').style.display = "none";
                 }
+
                     document.querySelector('.chartInformation').style.display = 'flex';
+                    document.querySelector('#firstChart').style.display = "flex";
                     document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
                     document.querySelector('.strikesHeader').style.display = 'block';
                     document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
@@ -201,7 +206,6 @@ button.addEventListener('click', (e) => {
               document.querySelector('.strikesHeader').style.display = "none";
               document.querySelector('.deathsHeader').style.display = "none";
               document.querySelector('.injuriesHeader').style.display = "none";
-
             }
           })
         //   .catch(function(err) {
