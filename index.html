@@ -22,11 +22,14 @@
     <div class="container">
         <h1>The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
-        <div class="chartInformation">
-            <h2 class="chartH2"></h2>
+        <div class="chartInformation" id="chart">
+            <h2 class="chartH2">Strikes In:</h2>
+            <h2 class="close">Close chart<i class="fa fa-1x fa-times-circle closeIcon"></i></h2>
+
             <div class="chartsContainer">
                 <canvas id="firstChart" class="chart"></canvas>
                 <canvas id="secondChart" class="chart"></canvas>
+                <canvas id="thirdChart" class="chart"></canvas>
             </div>
         </div>
         <div class="dashboard">
@@ -132,7 +135,9 @@
                             </div>
                     </div>
                 </div> -->
-                <button name="data" type="button" class="submit" value="yemen">Visualize this data</button>
+                <button name="data" type="button" class="submit">Visualize this data</button>
+                <!-- <button name="data" type="button" class="submit"><a href="#chart"></a>Visualize this data</a></button> -->
+
                 </form>
             </div>
         </div>

@@ -1,7 +1,14 @@
 const button = document.querySelector('button');
 let submitValue;
 let products;
+const closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', () => {
+  document.querySelector('.chartInformation').style.display = 'none';
+  document.querySelector('#thirdChart').style.display = "none";
+  document.querySelector('#firstChart').style.display = "none";
+  document.querySelector('#secondChart').style.display = "none";
 
+})
 button.addEventListener('click', (e) => {
     let childNodes = e.target.parentElement.childNodes;
     submitValue = childNodes[11].lastElementChild.value;
@@ -12,13 +19,13 @@ button.addEventListener('click', (e) => {
     // from = document.querySelector('.from').value;
     // to = document.querySelector('.to').value;
     country = document.querySelector('.country').value;
-
+    
     // console.log('displayPeopleKilled: ', displayPeopleKilled);
     // console.log('displayPeopleInjured: ', displayPeopleInjured);
     // console.log('displayNumberOfStrikes: ', displayNumberOfStrikes);
     // console.log('from date: ', from);
     // console.log('to date: ', to);
-    // console.log('selected country: ', country)
+    console.log('selected country: ', country)
 
     if (country === 'yemen') {
         fetch(`strikes/yemenStrikes.json`).then(function(response) {
@@ -49,50 +56,38 @@ button.addEventListener('click', (e) => {
                     maximumStrikes += parseInt(products[i]['Maximum number of strikes']);
                 }
               
+                if (displayPeopleKilled) {
+                    document.querySelector('#secondChart').style.display = "flex";
+                } else {
+                    document.querySelector('#secondChart').style.display = "none";
+                }
+                if (displayPeopleInjured) {
+                    document.querySelector('#thirdChart').style.display = "flex";
+                } else {
+                    document.querySelector('#thirdChart').style.display = "none";
+                }
                     document.querySelector('.chartInformation').style.display = 'flex';
                     document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
-                    document.querySelector('#secondChart').style.display = "none";
-                var ctx = document.getElementById('firstChart');
-                let myChart = new Chart(ctx, {
-                    type: 'bar',
+                    // document.querySelector('#secondChart').style.display = "none";
+                new Chart(document.getElementById("firstChart"), {
+                    type: 'line',
                     data: {
-                        labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-                        datasets: [{
-                            label: 'Number of Drone Strikes',
-                            data: [1, 0, 0,0, 0, 0, 0, 0, 0, 3, 2, 41, 20, 32, 21, 40, 130, 37],
-                            backgroundColor: [
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                                '#CE2D4F',
-                            ],
-                            borderWidth: 5
-                        }]
+                      labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+                      datasets: [{ 
+                          data: [1, 0, 0,0, 0, 0, 0, 0, 0, 3, 2, 41, 20, 32, 21, 40, 130, 37],
+                          label: "Number Of Drone Strikes",
+                          borderColor: "#CE2D4F",
+                          fill: true,
+                        }
+                      ]
                     },
                     options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
+                      title: {
+                        display: true,
+                        text: 'Number of Drone Strikes In Yemen'
+                      }
                     }
-                });
+                  });
             // document.querySelector('.chartInformation').style.display = 'flex';
             }
             let minimumPeopleInjured = 0;
@@ -102,31 +97,29 @@ button.addEventListener('click', (e) => {
                     minimumPeopleInjured += parseInt(products[i]['Minimum people injured']);
                     maximumPeopleInjured += parseInt(products[i]['Maximum people injured']);
                 }
-            }
-            let minimumPeopleKilled = 0;
-            let maximumPeopleKilled = 0;
-            if (displayPeopleKilled) {
-                
-                for(let i=0; i<products.length; i++) {
-                    minimumPeopleKilled += parseInt(products[i]['Minimum people killed']);
-                    maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
-                }
-                console.log('displayNumberOfStrikes: ', displayNumberOfStrikes)
                 if (displayNumberOfStrikes) {
                     document.querySelector('#firstChart').style.display = "flex";
+                    console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
                 } else {
                 document.querySelector('#firstChart').style.display = "none";
+                console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
                 }
-                document.querySelector('#secondChart').style.display = "flex";
-
-                new Chart(document.getElementById("secondChart"), {
+                if (displayPeopleKilled) {
+                    document.querySelector('#secondChart').style.display = "flex";
+                } else {
+                    document.querySelector('#secondChart').style.display = "none";
+                }
+                document.querySelector('#thirdChart').style.display = "flex";
+                document.querySelector('.chartInformation').style.display = 'flex';
+                document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
+                new Chart(document.getElementById("thirdChart"), {
                     type: 'pie',
                     data: {
-                      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                      labels: ["Civilians", "Children", "Millitants"],
                       datasets: [{
                         label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [2478,5267,734,784,433]
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                        data: [2478,5267,734]
                       }]
                     },
                     options: {
@@ -136,25 +129,73 @@ button.addEventListener('click', (e) => {
                       }
                     }
                 });
+            }
+            let minimumPeopleKilled = 0;
+            let maximumPeopleKilled = 0;
+            let minimumCiviliansKilled = 0;
+            let maximumCiviliansKilled = 0;
+            let minimumChildrenKilled = 0;
+            let maximumChildrenKilled = 0;
+            if (displayPeopleKilled) {  
+                for(let i=0; i<products.length; i++) {
+                    minimumPeopleKilled += parseInt(products[i]['Minimum people killed']);
+                    maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
+                    minimumCiviliansKilled += parseInt(products[i]['Minimum civilians reported killed']);
+                    maximumCiviliansKilled += parseInt(products[i]['Maximum civilians reported killed']);
+                    minimumChildrenKilled += parseInt(products[i]['Minimum children reported killed']);
+                    maximumChildrenKilled += parseInt(products[i]['Maximum children reported killed']);
+                }
+                console.log('displayNumberOfStrikes: ', displayNumberOfStrikes)
+                if (displayNumberOfStrikes) {
+                    document.querySelector('#firstChart').style.display = "flex";
+                    console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
+                } else {
+                document.querySelector('#firstChart').style.display = "none";
+                console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
+                }
+                if (displayPeopleInjured) {
+                    document.querySelector('#thirdChart').style.display = "flex";
+                } else {
+                    document.querySelector('#thirdChart').style.display = "none";
+                }
+                document.querySelector('#secondChart').style.display = "flex";
+                document.querySelector('.chartInformation').style.display = 'flex';   
+                document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
+                new Chart(document.getElementById("secondChart"), {
+                    type: 'horizontalBar',
+                    data: {
+                      labels: ["Total", "Civilians", "Children"],
+                      datasets: [
+                        {
+                          label: "Minimum",
+                          backgroundColor: "#CE2D4F",
+                          data: [minimumPeopleKilled,minimumCiviliansKilled,minimumChildrenKilled]
+                        }, {
+                          label: "Maximum",
+                          backgroundColor: "#AB1132",
+                          data: [maximumPeopleKilled,maximumCiviliansKilled,maximumChildrenKilled]
+                        }
+                      ]
+                    },
+                    options: {
+                      title: {
+                        display: true,
+                        text: 'People Killed'
+                      }
+                    }
+                });
             } 
+            if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
+              document.querySelector('.chartInformation').style.display = 'none';
+              document.querySelector('#thirdChart').style.display = "none";
+              document.querySelector('#firstChart').style.display = "none";
+              document.querySelector('#secondChart').style.display = "none";
+            }
           })
-          .catch(function(err) {
-            console.log('Fetch problem: ' + err.message);
-          });
+        //   .catch(function(err) {
+        //     console.log('Fetch problem: ' + err.message);
+        //   });
 
     }
     
 });
-
-
-// fetch(`strikes/${country}Strikes.json`).then(function(response) {
-//         return response.json();
-//       })
-//       .then(function(json) {
-//         products = json[country];
-//         console.log(`${country} strikes`, products);
-//         // initialize()
-//       })
-//       .catch(function(err) {
-//         console.log('Fetch problem: ' + err.message);
-//       });
