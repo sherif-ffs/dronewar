@@ -65,6 +65,7 @@ button.addEventListener('click', (e) => {
                 if (displayPeopleInjured) {
                     document.querySelector('#thirdChart').style.display = "flex";
                 } else {
+                    document.querySelector('.injuriesHeader').style.display = "none";
                     document.querySelector('#thirdChart').style.display = "none";
                 }
                     document.querySelector('.chartInformation').style.display = 'flex';
@@ -85,17 +86,12 @@ button.addEventListener('click', (e) => {
                         }
                       ]
                     },
-                    options: {
-                      title: {
-                        display: true,
-                        text: 'Number of Drone Strikes In Yemen'
-                      }
-                    }
                   });
             // document.querySelector('.chartInformation').style.display = 'flex';
             }
             let minimumPeopleInjured = 0;
             let maximumPeopleInjured = 0;
+
             if (displayPeopleInjured) {
                 for(let i=0; i<products.length; i++) {
                     minimumPeopleInjured += parseInt(products[i]['Minimum people injured']);
@@ -118,22 +114,24 @@ button.addEventListener('click', (e) => {
                 }
                 document.querySelector('#thirdChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';
+                document.querySelector('.injuriesHeader').style.display = "block";
+                document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
                 document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
                 new Chart(document.getElementById("thirdChart"), {
-                    type: 'pie',
+                    type: 'horizontalBar',
                     data: {
-                      labels: ["Civilians", "Children", "Millitants"],
-                      datasets: [{
-                        label: "Population (millions)",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-                        data: [2478,5267,734]
-                      }]
-                    },
-                    options: {
-                      title: {
-                        display: true,
-                        text: 'Predicted world population (millions) in 2050'
-                      }
+                      labels: ["Injured"],
+                      datasets: [
+                        {
+                          label: "Minimum",
+                          backgroundColor: "#CE2D4F",
+                          data: [minimumPeopleInjured]
+                        }, {
+                          label: "Maximum",
+                          backgroundColor: "#AB1132",
+                          data: [maximumPeopleInjured]
+                        }
+                      ]
                     }
                 });
             }
@@ -162,6 +160,7 @@ button.addEventListener('click', (e) => {
                     document.querySelector('#thirdChart').style.display = "flex";
                 } else {
                     document.querySelector('#thirdChart').style.display = "none";
+                    document.querySelector('.injuriesHeader').style.display = "none";
                 }
                 document.querySelector('#secondChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';   
@@ -169,7 +168,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
                 new Chart(document.getElementById("secondChart"), {
-                    type: 'horizontalBar',
+                    type: 'bar',
                     data: {
                       labels: ["Total", "Civilians", "Children"],
                       datasets: [
@@ -177,19 +176,21 @@ button.addEventListener('click', (e) => {
                           label: "Minimum",
                           backgroundColor: "#CE2D4F",
                           data: [minimumPeopleKilled,minimumCiviliansKilled,minimumChildrenKilled]
-                        }, {
+                        }, 
+                        {
                           label: "Maximum",
                           backgroundColor: "#AB1132",
                           data: [maximumPeopleKilled,maximumCiviliansKilled,maximumChildrenKilled]
                         }
-                      ]
+                      ],
                     },
-                    options: {
-                      title: {
-                        display: true,
-                        text: 'People Killed'
-                      }
-                    }
+                    // data: {
+                    //   labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                    //   datasets: [{
+                    //     backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    //     data: [2478,5267,734,784,433]
+                    //   }]
+                    // }
                 });
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
@@ -199,6 +200,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('#secondChart').style.display = "none";
               document.querySelector('.strikesHeader').style.display = "none";
               document.querySelector('.deathsHeader').style.display = "none";
+              document.querySelector('.injuriesHeader').style.display = "none";
 
             }
           })
