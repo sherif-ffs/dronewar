@@ -60,6 +60,7 @@ button.addEventListener('click', (e) => {
                     document.querySelector('#secondChart').style.display = "flex";
                 } else {
                     document.querySelector('#secondChart').style.display = "none";
+                    document.querySelector('.deathsHeader').style.display = "none"
                 }
                 if (displayPeopleInjured) {
                     document.querySelector('#thirdChart').style.display = "flex";
@@ -68,6 +69,9 @@ button.addEventListener('click', (e) => {
                 }
                     document.querySelector('.chartInformation').style.display = 'flex';
                     document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
+                    document.querySelector('.strikesHeader').style.display = 'block';
+                    document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
+
                     // document.querySelector('#secondChart').style.display = "none";
                 new Chart(document.getElementById("firstChart"), {
                     type: 'line',
@@ -101,13 +105,16 @@ button.addEventListener('click', (e) => {
                     document.querySelector('#firstChart').style.display = "flex";
                     console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
                 } else {
-                document.querySelector('#firstChart').style.display = "none";
-                console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
+                    document.querySelector('#firstChart').style.display = "none";
+                    document.querySelector('.strikesHeader').style.display = "none";             
+                    console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
                 }
                 if (displayPeopleKilled) {
                     document.querySelector('#secondChart').style.display = "flex";
                 } else {
                     document.querySelector('#secondChart').style.display = "none";
+                    document.querySelector('.deathsHeader').style.display = "none";
+
                 }
                 document.querySelector('#thirdChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';
@@ -145,13 +152,11 @@ button.addEventListener('click', (e) => {
                     minimumChildrenKilled += parseInt(products[i]['Minimum children reported killed']);
                     maximumChildrenKilled += parseInt(products[i]['Maximum children reported killed']);
                 }
-                console.log('displayNumberOfStrikes: ', displayNumberOfStrikes)
                 if (displayNumberOfStrikes) {
                     document.querySelector('#firstChart').style.display = "flex";
-                    console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
                 } else {
-                document.querySelector('#firstChart').style.display = "none";
-                console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
+                    document.querySelector('#firstChart').style.display = "none";
+                    document.querySelector('.strikesHeader').style.display = "none";
                 }
                 if (displayPeopleInjured) {
                     document.querySelector('#thirdChart').style.display = "flex";
@@ -160,6 +165,8 @@ button.addEventListener('click', (e) => {
                 }
                 document.querySelector('#secondChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';   
+                document.querySelector('.deathsHeader').style.display = 'block';
+                document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = 'Drone Strikes in Yemen';
                 new Chart(document.getElementById("secondChart"), {
                     type: 'horizontalBar',
@@ -190,6 +197,9 @@ button.addEventListener('click', (e) => {
               document.querySelector('#thirdChart').style.display = "none";
               document.querySelector('#firstChart').style.display = "none";
               document.querySelector('#secondChart').style.display = "none";
+              document.querySelector('.strikesHeader').style.display = "none";
+              document.querySelector('.deathsHeader').style.display = "none";
+
             }
           })
         //   .catch(function(err) {

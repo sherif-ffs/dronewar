@@ -48,5 +48,10 @@
     display: flex;
     height: 170px;
     flex: 1;
-    margin-top: 15%;
+}
+.chartHeader {
+    color: #CE2D4F!important;
+    margin-top: 10%;
+    font-weight: 500!important;
+    font-size: 1.8rem!important;
 }
