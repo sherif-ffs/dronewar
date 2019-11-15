@@ -1,15 +1,29 @@
 .chartInformation {
     width: 100vw;
-    height: 200vh;
+    /* height: 100vh; */
     background-color: #222;
-    display: flex;
+    display: none;
+    flex-direction: column;
     border: 1px solid red;
+    margin-top: 5%;
 }
 .chartH2 {
     margin-top: 5%;
     margin-left: 10%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #fafafa;
     opacity: .8;
+    display: flex;
     font-family: Avenir;
+}
+.chartsContainer {
+    display: flex;
+    width: 100%;
+    margin-top: 3%;
+}
+.chart {
+    width: 80%;;
+    display: flex;
+    height: 170px;
+    margin-top: 5%;
 }

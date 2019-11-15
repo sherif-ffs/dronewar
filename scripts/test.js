@@ -26,12 +26,20 @@ button.addEventListener('click', (e) => {
           })
           .then(function(json) {
             let products = json.yemen;
+            let labels=[];
+            let yearCount =0;
+            let data = [];
             for (let i=0; i<products.length; i++) {
             let date = products[i].Date.slice(6,10);
             if (date >= from && date <= to ) {
- 
+                if (labels.includes(date)) {
+                    console.log('repeat');
+                } else {
+                    labels.push(date);
+                }
             }
-            }   
+            }
+            console.log('Labels: ', labels);
             let minimumStrikes = 0;
             let maximumStrikes = 0;
             if (displayNumberOfStrikes) {
@@ -58,14 +66,15 @@ button.addEventListener('click', (e) => {
                     maximumPeopleKilled += parseInt(products[i]['Maximum people killed']);
                 }
             }
-            var ctx = document.getElementById('myChart');
+            document.querySelector('.chartInformation').style.display = 'flex';
+            var ctx = document.getElementById('firstChart');
             let myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: labels,
                     datasets: [{
-                        label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
+                        label: '# Strikes',
+                        data: [37, 123, 32, 52, 213, 32],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
