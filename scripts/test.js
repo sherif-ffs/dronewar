@@ -92,6 +92,48 @@ button.addEventListener('click', (e) => {
                         }
                     }
                 });
+                var ctx2 = document.getElementById('secondChart');
+                let myChart2 = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        // labels: labels,
+                        labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+                        datasets: [{
+                            label: 'Number of Drone Strikes',
+                            data: [1, 0, 0,0, 0, 0, 0, 0, 0, 3, 2, 41, 20, 32, 21, 40, 130, 37],
+                            backgroundColor: [
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                                '#CE2D4F',
+                            ],
+                            borderWidth: 5
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
             }
             let minimumPeopleInjured = 0;
             let maximumPeopleInjured = 0;
