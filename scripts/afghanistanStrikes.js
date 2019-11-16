@@ -10,7 +10,6 @@ let afghanistanChildrenDeaths = 0;
           let currentObject = droneStrikes[i];
           afghanistanChildrenDeaths += parseInt(currentObject["Maximum reported injured"]);
       } 
-      console.log('count: ', afghanistanChildrenDeaths);
     }
   };
   

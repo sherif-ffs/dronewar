@@ -10,7 +10,6 @@ let pakistanChildrenDeaths = 0;
           let currentObject = droneStrikes[i];
           pakistanChildrenDeaths += parseInt(currentObject["Maximum reported injured"]);
       }
-      console.log('count: ', pakistanChildrenDeaths);
     }
   };
   
@@ -18,7 +17,6 @@ let pakistanChildrenDeaths = 0;
   xmlhttp.send();
 
   document.querySelector('.pakistan').addEventListener('mouseenter', () => {
-    console.log('hey')
     document.querySelector('.pakistan').src = 'assets/pakistanAfter.svg';
   });
   document.querySelector('.pakistan').addEventListener('mouseleave', () => {

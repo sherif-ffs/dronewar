@@ -15,12 +15,9 @@ closeButton.addEventListener('click', () => {
 button.addEventListener('click', (e) => {
     let childNodes = e.target.parentElement.childNodes;
     submitValue = childNodes[11].lastElementChild.value;
-    // let country = submitValue;
     displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
     displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
     displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
-    // from = document.querySelector('.from').value;
-    // to = document.querySelector('.to').value;
     country = document.querySelector('.country').value;
     
     // console.log('displayPeopleKilled: ', displayPeopleKilled);
@@ -37,17 +34,8 @@ button.addEventListener('click', (e) => {
           .then(function(json) {
             let products = json.yemen;
             let labels=[];
-            let yearCount =0;
-            let data = [];
             for (let i=0; i<products.length; i++) {
-            let date = products[i].Date.slice(6,10);
-            // if (date >= from && date <= to ) {
-            //     if (labels.includes(date)) {
-            //         console.log('repeat');
-            //     } else {
-            //         labels.push(date);
-            //     }
-            // }
+
             }
             console.log('Labels: ', labels);
             let minimumStrikes = 0;
@@ -189,13 +177,6 @@ button.addEventListener('click', (e) => {
                         }
                       ],
                     },
-                    // data: {
-                    //   labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-                    //   datasets: [{
-                    //     backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                    //     data: [2478,5267,734,784,433]
-                    //   }]
-                    // }
                 });
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
@@ -208,10 +189,12 @@ button.addEventListener('click', (e) => {
               document.querySelector('.injuriesHeader').style.display = "none";
             }
           })
-        //   .catch(function(err) {
-        //     console.log('Fetch problem: ' + err.message);
-        //   });
+          .catch(function(err) {
+            console.log('Fetch problem: ' + err.message);
+          });
 
+    } else {
+      console.log('country: ', country)
     }
     
 });

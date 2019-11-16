@@ -11,12 +11,10 @@ let yemenChildrenDeaths = 0;
         let yearTotals = 0;
         let total = [];
         for (let j=0; j<currentObject.length; j++) {
-        console.log(year);
           if (year === 2002) {
             yearTotals += 1;
           }
         }
-        console.log('yearTotals: ', yearTotals);
       }
     }
   };
@@ -26,10 +24,10 @@ let yemenChildrenDeaths = 0;
 
 
 
-// document.querySelector('.yemen').addEventListener('mouseenter', () => {
-//     document.querySelector('.yemen').classList.add('active')
-//     document.querySelector('.yemen').src = 'assets/yemenAfter.svg';
-//   });
-//   document.querySelector('.yemen').addEventListener('mouseleave', () => {
-//     document.querySelector('.yemen').src = 'assets/yemen.svg';
-//   });
+document.querySelector('.yemen').addEventListener('mouseenter', () => {
+    document.querySelector('.yemen').classList.add('active')
+    document.querySelector('.yemen').src = 'assets/yemenAfter.svg';
+  });
+  document.querySelector('.yemen').addEventListener('mouseleave', () => {
+    document.querySelector('.yemen').src = 'assets/yemen.svg';
+  });

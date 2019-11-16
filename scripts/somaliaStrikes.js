@@ -11,7 +11,6 @@ let somaliaChildrenDeaths = 0;
           let currentObject = droneStrikes[i];
           somaliaChildrenDeaths += parseInt(currentObject["Maximum people injured"]);
       }
-      console.log('count: ', somaliaChildrenDeaths)
     }
   };
   
