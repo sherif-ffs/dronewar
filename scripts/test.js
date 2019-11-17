@@ -455,9 +455,9 @@ button.addEventListener('click', (e) => {
                 'Jan 2016', 'Mar 2016', 'May 2016', 'Jul 2016', 'Sep 2016', 'Nov 2016',
                 'Jan 2017', 'Mar 2017', 'May 2017', 'Jul 2017', 'Sep 2017', 'Nov 2017',
                 'Jan 2018', 'Mar 2018', 'May 2018', 'Jul 2018', 'Sep 2018', 'Nov 2018',
-                'Jan 2019', 'Mar 2019', 'May 2019', 'Jul 2019', 'Sep 2019', 'Nov 2019'],
+                'Jan 2019', 'Mar 2019', 'Sep 2019'],
                 datasets: [{ 
-                    data: [18,22,92,80,140,175,11,461,111,161,176,450,398,307,358,387,212,10,25,14,6,5,12,18,18,102,7,38,465,392,494,411,3,2,30],
+                    data: [14,11,35,76,100,21,58,14,40,172,315,472,172,626,705,745,222,39,11,30,120,45,857,905,3,2,30],
                     label: "Number Of Drone Strikes",
                     borderColor: "#CE2D4F",
                     fill: true,
@@ -491,7 +491,7 @@ button.addEventListener('click', (e) => {
           document.querySelector('#thirdChart').style.display = "flex";
           document.querySelector('.chartInformation').style.display = 'flex';
           document.querySelector('.injuriesHeader').style.display = "block";
-          document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+          document.querySelector('.injuriesHeader').innerHTML = `People Injured 562 - 844`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
           new Chart(document.getElementById("thirdChart"), {
               type: 'horizontalBar',
@@ -501,11 +501,11 @@ button.addEventListener('click', (e) => {
                   {
                     label: "Minimum",
                     backgroundColor: "#CE2D4F",
-                    data: [minimumPeopleInjured]
+                    data: [562]
                   }, {
                     label: "Maximum",
                     backgroundColor: "#AB1132",
-                    data: [maximumPeopleInjured]
+                    data: [844]
                   }
                 ]
               }
@@ -541,7 +541,7 @@ button.addEventListener('click', (e) => {
           document.querySelector('#secondChart').style.display = "flex";
           document.querySelector('.chartInformation').style.display = 'flex';   
           document.querySelector('.deathsHeader').style.display = 'block';
-          document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
+          document.querySelector('.deathsHeader').innerHTML = `Deaths: 3959 - 5532`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
           new Chart(document.getElementById("secondChart"), {
               type: 'bar',
@@ -551,12 +551,12 @@ button.addEventListener('click', (e) => {
                   {
                     label: "Minimum",
                     backgroundColor: "#CE2D4F",
-                    data: [minimumPeopleKilled,minimumCiviliansKilled,minimumChildrenKilled]
+                    data: [3959,161,37]
                   }, 
                   {
                     label: "Maximum",
                     backgroundColor: "#AB1132",
-                    data: [maximumPeopleKilled,maximumCiviliansKilled,maximumChildrenKilled]
+                    data: [5532,473,129]
                   }
                 ],
               },
@@ -569,6 +569,184 @@ button.addEventListener('click', (e) => {
     .catch(function(err) {
       console.log('Fetch problem: ' + err.message);
     });
+
+}
+if (country === 'pakistan') {
+  fetch(`strikes/pakistanStrikes.json`).then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      let products = json.pakistan;
+      let labels=[];
+      let displayMaximumStrikes = 0;
+      let displayMaximumDeaths = 0;
+      let displayMinimumDeaths = 0;
+      let displayMaximumCivilians = 0;
+      let displayMinimumCivilians = 0;
+      let displayMaximumChildren = 0;
+      let displayMinimumChildren = 0;
+      for (let i=0; i<products.length; i++) {
+        displayMaximumStrikes += parseInt(products[i].Index);
+        displayMaximumDeaths += parseInt(products[i]["Maximum total people killed"]);
+        displayMinimumDeaths += parseInt(products[i]["Minimum total people killed"]);
+        displayMaximumCivilians += parseInt(products[i]["Maximum civilians reported killed"]);
+        displayMinimumCivilians += parseInt(products[i]["Minimum civilians reported killed"]);
+        displayMaximumChildren += parseInt(products[i]["Maximum children reported killed"]);
+        displayMinimumChildren += parseInt(products[i]["Minimum children reported killed"]);
+      }
+      document.querySelector('.sectionHeader').innerHTML =`current statistics in ${country}`;
+      document.querySelector('.displayStrikes').innerHTML = `430`;
+      document.querySelector('.displayDeaths').innerHTML = `${displayMinimumDeaths} - ${displayMaximumDeaths}`;
+      document.querySelector('.displayCivilians').innerHTML = `${displayMinimumCivilians} - ${displayMaximumCivilians}`;
+      document.querySelector('.displayChildren').innerHTML = `${displayMinimumChildren} - ${displayMaximumChildren}`
+      let minimumStrikes = 0;
+      let maximumStrikes = 0;
+
+    
+    if (displayNumberOfStrikes) {
+        
+        for (let i=0; i<products.length; i++) {
+            minimumStrikes += parseInt(products[i]['Minimum strikes']);
+            maximumStrikes += parseInt(products[i]['Maximum strikes']);
+        }
+        if (displayPeopleKilled) {
+            document.querySelector('#secondChart').style.display = "flex";
+        } else {
+            document.querySelector('#secondChart').style.display = "none";
+            document.querySelector('.deathsHeader').style.display = "none"
+        }
+        if (displayPeopleInjured) {
+            document.querySelector('#thirdChart').style.display = "flex";
+        } else {
+            document.querySelector('.injuriesHeader').style.display = "none";
+            document.querySelector('#thirdChart').style.display = "none";
+        }
+            document.querySelector('.chartInformation').style.display = 'flex';
+            document.querySelector('#firstChart').style.display = "flex";
+            document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
+            document.querySelector('.strikesHeader').style.display = 'block';
+            document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: 5,888`;
+        new Chart(document.getElementById("firstChart"), {
+            type: 'line',
+            data: {
+              labels: ['Jan 2015', 'Mar 2015', 'May 2015', 'Jul 2015', 'Sep 2015', 'Nov 2015',
+              'Jan 2016', 'Mar 2016', 'May 2016', 'Jul 2016', 'Sep 2016', 'Nov 2016',
+              'Jan 2017', 'Mar 2017', 'May 2017', 'Jul 2017', 'Sep 2017', 'Nov 2017',
+              'Jan 2018', 'Mar 2018', 'May 2018', 'Jul 2018', 'Sep 2018', 'Nov 2018',
+              'Jan 2019', 'Mar 2019', 'Sep 2019'],
+              datasets: [{ 
+                  data: [14,11,35,76,100,21,58,14,40,172,315,472,172,626,705,745,222,39,11,30,120,45,857,905,3,2,30],
+                  label: "Number Of Drone Strikes",
+                  borderColor: "#CE2D4F",
+                  fill: true,
+                }
+              ]
+            },
+          });
+    }
+    let minimumPeopleInjured = 0;
+    let maximumPeopleInjured = 0;
+    if (displayPeopleInjured) {
+        for(let i=0; i<products.length; i++) {
+            minimumPeopleInjured += parseInt(products[i]['Minimum reported injured']);
+            maximumPeopleInjured += parseInt(products[i]['Maximum reported injured']);
+        }
+        if (displayNumberOfStrikes) {
+            document.querySelector('#firstChart').style.display = "flex";
+            console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
+        } else {
+            document.querySelector('#firstChart').style.display = "none";
+            document.querySelector('.strikesHeader').style.display = "none";             
+            console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
+        }
+        if (displayPeopleKilled) {
+            document.querySelector('#secondChart').style.display = "flex";
+        } else {
+            document.querySelector('#secondChart').style.display = "none";
+            document.querySelector('.deathsHeader').style.display = "none";
+
+        }
+        document.querySelector('#thirdChart').style.display = "flex";
+        document.querySelector('.chartInformation').style.display = 'flex';
+        document.querySelector('.injuriesHeader').style.display = "block";
+        document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+        document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
+        new Chart(document.getElementById("thirdChart"), {
+            type: 'horizontalBar',
+            data: {
+              labels: ["Injured"],
+              datasets: [
+                {
+                  label: "Minimum",
+                  backgroundColor: "#CE2D4F",
+                  data: [minimumPeopleInjured]
+                }, {
+                  label: "Maximum",
+                  backgroundColor: "#AB1132",
+                  data: [maximumPeopleInjured]
+                }
+              ]
+            }
+        });
+    }
+    let minimumPeopleKilled = 0;
+    let maximumPeopleKilled = 0;
+    let minimumCiviliansKilled = 0;
+    let maximumCiviliansKilled = 0;
+    let minimumChildrenKilled = 0;
+    let maximumChildrenKilled = 0;
+    if (displayPeopleKilled) {  
+        for(let i=0; i<products.length; i++) {
+            minimumPeopleKilled += parseInt(products[i]['Minimum total people killed']);
+            maximumPeopleKilled += parseInt(products[i]['Maximum total people killed']);
+            minimumCiviliansKilled += parseInt(products[i]['Minimum civilians reported killed']);
+            maximumCiviliansKilled += parseInt(products[i]['Maximum civilians reported killed']);
+            minimumChildrenKilled += parseInt(products[i]['Minimum children reported killed']);
+            maximumChildrenKilled += parseInt(products[i]['Maximum children reported killed']);
+        }
+        if (displayNumberOfStrikes) {
+            document.querySelector('#firstChart').style.display = "flex";
+        } else {
+            document.querySelector('#firstChart').style.display = "none";
+            document.querySelector('.strikesHeader').style.display = "none";
+        }
+        if (displayPeopleInjured) {
+            document.querySelector('#thirdChart').style.display = "flex";
+        } else {
+            document.querySelector('#thirdChart').style.display = "none";
+            document.querySelector('.injuriesHeader').style.display = "none";
+        }
+        document.querySelector('#secondChart').style.display = "flex";
+        document.querySelector('.chartInformation').style.display = 'flex';   
+        document.querySelector('.deathsHeader').style.display = 'block';
+        document.querySelector('.deathsHeader').innerHTML = `Deaths: ${displayMinimumDeaths} - ${displayMaximumDeaths}`;
+        document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
+        new Chart(document.getElementById("secondChart"), {
+            type: 'bar',
+            data: {
+              labels: ["Total", "Civilians", "Children"],
+              datasets: [
+                {
+                  label: "Minimum",
+                  backgroundColor: "#CE2D4F",
+                  data: [displayMinimumDeaths,displayMinimumCivilians,displayMinimumChildren]
+                }, 
+                {
+                  label: "Maximum",
+                  backgroundColor: "#AB1132",
+                  data: [displayMaximumDeaths,displayMaximumCivilians,displayMaximumChildren]
+                }
+              ],
+            },
+        });
+    } 
+    if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
+      resetBoard()
+    }
+  })
+  .catch(function(err) {
+    console.log('Fetch problem: ' + err.message);
+  });
 
 }
   
