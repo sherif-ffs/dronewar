@@ -5,6 +5,16 @@ let products;
 const closeButtons = document.querySelectorAll('.close');
 const clearButton = document.querySelector('.clear');
 
+function findPos(obj) {
+  let curtop = 0;
+  if (obj.offsetParent) {
+      do {
+          curtop += obj.offsetTop;
+      } while (obj = obj.offsetParent);
+  return [curtop];
+  }
+}
+
 const resetBoard = () => {
   document.querySelector('.chartInformation').style.display = 'none';
   document.querySelector('#thirdChart').style.display = "none";
@@ -19,6 +29,7 @@ const resetBoard = () => {
   document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
   document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
   document.querySelector('.displayChildren').innerHTML = `286 - 457`;
+  window.scroll(0,findPos(document.getElementById("title")));
 }
 
 closeButtons.forEach((button) => {
@@ -384,5 +395,7 @@ button.addEventListener('click', (e) => {
   }else {
       console.log('country: ', country)
     }
-    
+    // document.getElementById("firstChartHeader").scrollIntoView(); 
+    window.scroll(0,findPos(document.getElementById("chartsHeader")));
+
 });

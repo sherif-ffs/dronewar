@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>The Drone Program</h1>
+        <h1 id="title">The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
         
         <div class="dashboard" id="dashboard">
@@ -72,7 +72,7 @@
                 </div>
                 <!-- <button name="data" type="button" class="submit">Visualize this data</button> -->
                 <div class="buttonRow">
-                    <button name="data" type="button" class="submit"><a href="#chart"></a>Visualize this data</button>
+                    <button name="data" type="button" class="submit"><a  class="buttonReference"></a>Visualize this data</button>
                     <button name="data" type="button" class="clear">Clear Charts</button>
                 </div>
                 
@@ -81,7 +81,7 @@
             </div>
         </div>
             <div class="chartInformation">
-                <h2 class="chartH2"></h2>
+                <h2 class="chartH2" id="chartsHeader"></h2>
                 <h2 class="close">close charts<i class="fa fa-1x fa-times-circle closeIcon"></i></h2>
                 <ul class="chartNavigation">
                     <a href="#firstChartHeader">View strike data</a>
@@ -96,7 +96,7 @@
                     <h1 class="chartHeader injuriesHeader" id="thirdChartHeader">Injuries</h1>
                     <canvas id="thirdChart" class="chart"></canvas>
                 </div>
-                <a href="#dashboard" class="returnToDashboard">back to dashboard<i class="fa fa-arrow-circle-up downIcon"></i></a>
+                <a href="#title" class="returnToDashboard">back to dashboard<i class="fa fa-arrow-circle-up downIcon"></i></a>
             </div>
         
         <h1 class="viewAllData">View All Data<i class="fa fa-arrow-right"></i></h1>
