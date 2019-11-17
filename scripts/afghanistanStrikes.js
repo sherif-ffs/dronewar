@@ -5,11 +5,12 @@ let afghanistanChildrenDeaths = 0;
     if (this.readyState == 4 && this.status == 200) {
       afghanistanStrikes = JSON.parse(this.responseText);
       let droneStrikes = afghanistanStrikes.afghanistan;
-      let totalAfghanDeaths = 0;
+      let totalStrikes = 0
       for (let i=0; i<droneStrikes.length; i++) {
           let currentObject = droneStrikes[i];
-          afghanistanChildrenDeaths += parseInt(currentObject["Maximum reported injured"]);
+          totalStrikes += parseInt(currentObject["Minimum strikes"]);
       } 
+      console.log('totalStrikes: ', totalStrikes)
     }
   };
   
