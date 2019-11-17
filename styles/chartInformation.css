@@ -19,10 +19,32 @@
     line-height: 1.8rem;
     transition: .3s;
 }
+.returnToDashboard {
+    float: right;
+    font-size: 50px;
+    margin-top: 1.5%;
+    margin-left: 10%;
+    font-size: 1.8rem;
+    color: #fafafa;
+    opacity: .6;
+    display: flex;
+    font-family: Avenir;
+    line-height: 1.8rem;
+    transition: .3s;
+    /* width: 100%; */
+    text-decoration: none;
+}
 .close:hover {
     transition: .3s;
     color: #CE2D4F;
     cursor: pointer;
+    padding-left: 15px;
+}
+.returnToDashboard:hover {
+    transition: .3s;
+    color: #CE2D4F;
+    cursor: pointer;
+    padding-left: 15px;
 }
 .closeIcon {
     margin-left: 1%;
@@ -40,7 +62,7 @@
     display: flex;
     width: 85%;
     margin-left: 7.5%;
-    margin-top: 3%;
+    margin-top: 0%;
     flex-direction: column;
 }
 .chart {

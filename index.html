@@ -22,11 +22,12 @@
     <div class="container">
         <h1>The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
-        <div class="chartInformation" id="chart">
+        <div class="chartInformation">
             <h2 class="chartH2">Strikes In:</h2>
             <h2 class="close">Close chart<i class="fa fa-1x fa-times-circle closeIcon"></i></h2>
+            <a href="#dashboard" class="returnToDashboard">Back to Dashboard<i class="fa fa-arrow-circle-down downIcon"></i></a>
 
-            <div class="chartsContainer">
+            <div class="chartsContainer" id="chart">
                 <h1 class="chartHeader strikesHeader"></h1>
                 <canvas id="firstChart" class="chart"></canvas>
                 <h1 class="chartHeader deathsHeader">Deaths</h1>
@@ -35,23 +36,21 @@
                 <canvas id="thirdChart" class="chart"></canvas>
             </div>
         </div>
-        <div class="dashboard">
+        <div class="dashboard" id="dashboard">
             <div class="currentStatistics tab">
                 <h2 class="sectionHeader">current statistics overall</h2>
-                <h1 class="numberTitle">11,928</h1>
+                <h1 class="numberTitle displayStrikes">11,928</h1>
                 <h3 class="subTitle">TOTAL CONFIRMED STRIKES</h3>
-                <h1 class="numberTitle">9,331 - 16,959</h1>
+                <h1 class="numberTitle displayDeaths">9,331 - 16,959</h1>
                 <h3 class="subTitle">PEOPLE KILLED</h3>
-                <h1 class="numberTitle">917 - 1,995</h1>
+                <h1 class="numberTitle displayCivilians">917 - 1,995</h1>
                 <h3 class="subTitle">CIVILIANS KILLED</h3>
-                <h1 class="numberTitle">286 - 457</h1>
+                <h1 class="numberTitle displayChildren">286 - 457</h1>
                 <h3 class="subTitle">CHILDREN KILLED</h3>
-                <!-- <h1 class="numberTitle">2,174 - 3,939</h1>
-                <h3 class="subTitle last">PEOPLE INJURED</h3> -->
             </div>
             <div class="exploreData tab">
                 <h2 class="sectionHeader">visualize the data per country</h2>
-                <form method="GET" >
+                <form>
                     <p>SHOW ME </p>
                     <div class="checkbox-container circular-container">
                             <div class="input-title">People Killed</div>
@@ -138,8 +137,8 @@
                             </div>
                     </div>
                 </div> -->
-                <button name="data" type="button" class="submit">Visualize this data</button>
-                <!-- <button name="data" type="button" class="submit"><a href="#chart"></a>Visualize this data</a></button> -->
+                <!-- <button name="data" type="button" class="submit">Visualize this data</button> -->
+                <button name="data" type="button" class="submit"><a href="#chart"></a>Visualize this data</button>
 
                 </form>
             </div>

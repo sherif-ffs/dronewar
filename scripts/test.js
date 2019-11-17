@@ -11,6 +11,11 @@ closeButton.addEventListener('click', () => {
     document.querySelector('.deathsHeader').style.display = "none";
     document.querySelector('.injuriesHeader').style.display = "none";
 
+    document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
+    document.querySelector('.displayStrikes').innerHTML = `11,928`;
+    document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
+    document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
+    document.querySelector('.displayChildren').innerHTML = `286 - 457`;
 })
 button.addEventListener('click', (e) => {
     let childNodes = e.target.parentElement.childNodes;
@@ -25,6 +30,7 @@ button.addEventListener('click', (e) => {
     // console.log('displayNumberOfStrikes: ', displayNumberOfStrikes);
     // console.log('from date: ', from);
     // console.log('to date: ', to);
+
     console.log('selected country: ', country)
 
     if (country === 'yemen') {
@@ -34,12 +40,31 @@ button.addEventListener('click', (e) => {
           .then(function(json) {
             let products = json.yemen;
             let labels=[];
+            let displayMaximumStrikes = 0;
+            let displayMaximumDeaths = 0;
+            let displayMinimumDeaths = 0;
+            let displayMaximumCivilians = 0;
+            let displayMinimumCivilians = 0;
+            let displayMaximumChildren = 0;
+            let displayMinimumChildren = 0;
             for (let i=0; i<products.length; i++) {
-
+              displayMaximumStrikes += parseInt(products[i]['Maximum number of strikes']);
+              displayMaximumDeaths += parseInt(products[i]["Maximum people killed"]);
+              displayMinimumDeaths += parseInt(products[i]["Minimum people killed"]);
+              displayMaximumCivilians += parseInt(products[i]["Maximum civilians reported killed"]);
+              displayMinimumCivilians += parseInt(products[i]["Minimum civilians reported killed"]);
+              displayMaximumChildren += parseInt(products[i]["Maximum children reported killed"]);
+              displayMinimumChildren += parseInt(products[i]["Minimum children reported killed"]);
             }
-            console.log('Labels: ', labels);
+            document.querySelector('.sectionHeader').innerHTML =`current statistics in ${country}`;
+            document.querySelector('.displayStrikes').innerHTML = `${displayMaximumStrikes}`;
+            document.querySelector('.displayDeaths').innerHTML = `${displayMinimumDeaths} - ${displayMaximumDeaths}`;
+            document.querySelector('.displayCivilians').innerHTML = `${displayMinimumCivilians} - ${displayMaximumCivilians}`;
+            document.querySelector('.displayChildren').innerHTML = `${displayMinimumChildren} - ${displayMaximumChildren}`
             let minimumStrikes = 0;
             let maximumStrikes = 0;
+
+            
             if (displayNumberOfStrikes) {
                 
                 for (let i=0; i<products.length; i++) {
@@ -187,6 +212,12 @@ button.addEventListener('click', (e) => {
               document.querySelector('.strikesHeader').style.display = "none";
               document.querySelector('.deathsHeader').style.display = "none";
               document.querySelector('.injuriesHeader').style.display = "none";
+
+              document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
+              document.querySelector('.displayStrikes').innerHTML = `11,928`;
+              document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
+              document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
+              document.querySelector('.displayChildren').innerHTML = `286 - 457`;
             }
           })
           .catch(function(err) {
