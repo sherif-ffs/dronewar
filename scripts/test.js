@@ -2,24 +2,28 @@ const button = document.querySelector('button');
 let submitValue;
 let products;
 const closeButton = document.querySelector('.close');
-closeButton.addEventListener('click', () => {
-  document.querySelector('.chartInformation').style.display = 'none';
-    document.querySelector('#thirdChart').style.display = "none";
-    document.querySelector('#firstChart').style.display = "none";
-    document.querySelector('#secondChart').style.display = "none";
-    document.querySelector('.strikesHeader').style.display = "none";
-    document.querySelector('.deathsHeader').style.display = "none";
-    document.querySelector('.injuriesHeader').style.display = "none";
 
-    document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
-    document.querySelector('.displayStrikes').innerHTML = `11,928`;
-    document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
-    document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
-    document.querySelector('.displayChildren').innerHTML = `286 - 457`;
-})
+const resetBoard = () => {
+  document.querySelector('.chartInformation').style.display = 'none';
+  document.querySelector('#thirdChart').style.display = "none";
+  document.querySelector('#firstChart').style.display = "none";
+  document.querySelector('#secondChart').style.display = "none";
+  document.querySelector('.strikesHeader').style.display = "none";
+  document.querySelector('.deathsHeader').style.display = "none";
+  document.querySelector('.injuriesHeader').style.display = "none";
+
+  document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
+  document.querySelector('.displayStrikes').innerHTML = `11,928`;
+  document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
+  document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
+  document.querySelector('.displayChildren').innerHTML = `286 - 457`;
+}
+
+closeButton.addEventListener('click', resetBoard);
+
 button.addEventListener('click', (e) => {
     let childNodes = e.target.parentElement.childNodes;
-    submitValue = childNodes[11].lastElementChild.value;
+    // submitValue = childNodes[11].lastElementChild.value;
     displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
     displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
     displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
@@ -205,19 +209,7 @@ button.addEventListener('click', (e) => {
                 });
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
-              document.querySelector('.chartInformation').style.display = 'none';
-              document.querySelector('#thirdChart').style.display = "none";
-              document.querySelector('#firstChart').style.display = "none";
-              document.querySelector('#secondChart').style.display = "none";
-              document.querySelector('.strikesHeader').style.display = "none";
-              document.querySelector('.deathsHeader').style.display = "none";
-              document.querySelector('.injuriesHeader').style.display = "none";
-
-              document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
-              document.querySelector('.displayStrikes').innerHTML = `11,928`;
-              document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
-              document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
-              document.querySelector('.displayChildren').innerHTML = `286 - 457`;
+              resetBoard()
             }
           })
           .catch(function(err) {
