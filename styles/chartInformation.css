@@ -6,32 +6,54 @@
     flex-direction: column;
     padding-bottom: 15vh;
 }
+.chartNavigation {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    transition: .3s;
+    margin-top: 2%;
+}
+.chartNavigation a {
+    color: #fafafa;
+    opacity: .6;
+    display: flex;
+    text-decoration: none;
+    font-family: Avenir;
+    transition: .3s;
+}
+.chartNavigation a:hover {
+    padding-left:8px;
+    transition: .3s;
+    color: #CE2D4F;
+    cursor: pointer;
+}
 .close {
     float: right;
     font-size: 50px;
     margin-top: 1%;
     margin-left: 10%;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #fafafa;
     opacity: .6;
     display: flex;
     font-family: Avenir;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
     transition: .3s;
 }
 .returnToDashboard {
     float: right;
     font-size: 50px;
-    margin-top: 1.5%;
+    margin-top: 8%;
     margin-left: 10%;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #fafafa;
     opacity: .6;
     display: flex;
     font-family: Avenir;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
     transition: .3s;
-    /* width: 100%; */
     text-decoration: none;
 }
 .close:hover {
@@ -52,7 +74,7 @@
 .chartH2 {
     margin-top: 5%;
     margin-left: 10%;
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: #fafafa;
     opacity: .8;
     display: flex;

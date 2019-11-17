@@ -132,10 +132,11 @@ button {
     font-family: Avenir;
     transition: .3s;
     box-shadow: 0px 4px #6b1728;
+    font-weight: 800;
 }
 button:hover {
     cursor: pointer;
-    opacity: .8;
+    opacity: .7;
     transition: .4s;
 }
 .clear {
@@ -147,6 +148,6 @@ button:hover {
   transition: .4s;
 }
 .clear:hover {
-  opacity: .9;
+  opacity: 1;
 
 }

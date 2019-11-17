@@ -22,20 +22,7 @@
     <div class="container">
         <h1>The Drone Program</h1>
         <p>Historical data about every reported covert United States drone strike</p>
-        <div class="chartInformation">
-            <h2 class="chartH2">Strikes In:</h2>
-            <h2 class="close">Close chart<i class="fa fa-1x fa-times-circle closeIcon"></i></h2>
-            <a href="#dashboard" class="returnToDashboard">Back to Dashboard<i class="fa fa-arrow-circle-down downIcon"></i></a>
-
-            <div class="chartsContainer" id="chart">
-                <h1 class="chartHeader strikesHeader"></h1>
-                <canvas id="firstChart" class="chart"></canvas>
-                <h1 class="chartHeader deathsHeader">Deaths</h1>
-                <canvas id="secondChart" class="chart"></canvas>
-                <h1 class="chartHeader injuriesHeader">Injuries</h1>
-                <canvas id="thirdChart" class="chart"></canvas>
-            </div>
-        </div>
+        
         <div class="dashboard" id="dashboard">
             <div class="currentStatistics tab">
                 <h2 class="sectionHeader">current statistics overall</h2>
@@ -147,6 +134,25 @@
                 </form>
             </div>
         </div>
+            <div class="chartInformation">
+                <h2 class="chartH2"></h2>
+                <h2 class="close">close charts<i class="fa fa-1x fa-times-circle closeIcon"></i></h2>
+                <ul class="chartNavigation">
+                    <a href="#firstChartHeader">View strike data</a>
+                    <a href="#secondChartHeader">View deaths </a>
+                    <a href="#thirdChartHeader">View Injuries</a>
+                </ul>
+                <div class="chartsContainer" id="chart">
+                    <h1 class="chartHeader strikesHeader" id="firstChartHeader"></h1>
+                    <canvas id="firstChart" class="chart"></canvas>
+                    <h1 class="chartHeader deathsHeader" id="secondChartHeader">Deaths</h1>
+                    <canvas id="secondChart" class="chart"></canvas>
+                    <h1 class="chartHeader injuriesHeader" id="thirdChartHeader">Injuries</h1>
+                    <canvas id="thirdChart" class="chart"></canvas>
+                </div>
+                <a href="#dashboard" class="returnToDashboard">back to dashboard<i class="fa fa-arrow-circle-up downIcon"></i></a>
+            </div>
+        
         <h1 class="viewAllData">View All Data<i class="fa fa-arrow-right"></i></h1>
         <h3 class="detailsByCountry">Drone Strikes and details by country</h3>
         <div class="countries">
