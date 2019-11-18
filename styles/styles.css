@@ -22,7 +22,7 @@ body {
     font-size: 3rem;
     font-weight: 900;
     font-family: Avenir;
-    color: rgb(80, 21, 34);
+    color: #501522;
     text-shadow: 0px 1px #222;
 }
 .container p {
@@ -107,27 +107,25 @@ body {
     flex: 1;
     width: 90%;
     margin-left: 2%;
-    transition: .5s;
+    transition: .3s;
 }
 .country:hover {
     cursor: pointer;
-    opacity: .7active;
-    transition: .5s;
-    /* margin-bottom: 15px; */
-    box-shadow: 0px 5px #211A1E;
-    border: 5px sold black;
+    opacity: .9;
+    transition: .3s;
+    padding-top: 10px;
 }
-
 .viewAllData {
     font-size: 3rem!important;
-    transition: .5s;
+    transition: .3s;
     margin-top: 4%;
+    display: none;
     width: 30%;
 }
 .viewAllData:hover {
     color: #fafafa;
     opacity: .7;
-    transition: .5s;
+    transition: .3s;
     cursor: pointer;
     padding-left: 15px;
 }

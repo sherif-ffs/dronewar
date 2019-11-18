@@ -40,6 +40,13 @@
                 <form>
                     <p>SHOW ME </p>
                     <div class="checkbox-container circular-container">
+                        <div class="input-title">Number of Strikes</div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkBox displayNumberOfStrikes" value="1" checked name="numStrikes" value="value">
+                        <span class="checkbox-custom circular"></span>
+                    </label>
+                    </div>  
+                    <div class="checkbox-container circular-container">
                             <div class="input-title">People Killed</div>
                         <label class="checkbox-label">
                             <input type="checkbox" class="checkBox displayPeopleKilled" value="0" checked name="peopleKilled" value="value">
@@ -48,19 +55,12 @@
                     </div>  
                     <div class="checkbox-container circular-container">
                             <div class="input-title">People Injured</div>
-
                         <label class="checkbox-label">
                             <input type="checkbox" class="checkBox displayPeopleInjured" value="1" checked name="peopleInjured" value="value">
                             <span class="checkbox-custom circular"></span>
                         </label>
                     </div>                    
-                    <div class="checkbox-container circular-container">
-                            <div class="input-title">Number of Strikes</div>
-                        <label class="checkbox-label">
-                            <input type="checkbox" class="checkBox displayNumberOfStrikes" value="1" checked name="numStrikes" value="value">
-                            <span class="checkbox-custom circular"></span>
-                        </label>
-                    </div>  
+                    
                 <p class="in">IN</p>
                 <div class="select">
                     <select class="country" aria-label="Select menu example" name="location" value="value">
@@ -70,7 +70,6 @@
                         <option value="somalia">Somalia</option>
                     </select>
                 </div>
-                <!-- <button name="data" type="button" class="submit">Visualize this data</button> -->
                 <div class="buttonRow">
                     <button name="data" type="button" class="submit"><a  class="buttonReference"></a>Visualize this data</button>
                     <button name="data" type="button" class="clear">Clear Charts</button>

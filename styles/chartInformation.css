@@ -92,6 +92,7 @@
     display: flex;
     height: 170px;
     flex: 1;
+    margin-top: 3%;
 }
 .chartHeader {
     color: #CE2D4F!important;

@@ -550,26 +550,23 @@ button.addEventListener('click', (e) => {
           document.querySelector('#secondChart').style.display = "flex";
           document.querySelector('.chartInformation').style.display = 'flex';   
           document.querySelector('.deathsHeader').style.display = 'block';
-          document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumCiviliansKilled} - ${maximumCiviliansKilled}`;
+          document.querySelector('.deathsHeader').innerHTML = `minimum peopled killed: ${minimumPeopleKilled}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
           new Chart(document.getElementById("secondChart"), {
-              type: 'bar',
-              data: {
-                labels: ["Total", "Civilians", "Children"],
-                datasets: [
-                  {
-                    label: "Minimum",
-                    backgroundColor: "#CE2D4F",
-                    data: [3959,161,37]
-                  }, 
-                  {
-                    label: "Maximum",
-                    backgroundColor: "#AB1132",
-                    data: [5532,473,129]
-                  }
-                ],
-              },
-          });
+            type: 'doughnut',
+            data: {
+              datasets: [{
+                backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
+                borderColor: "#CE2D4F",
+                borderWidth: '0',
+                data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
+              }],
+              labels: ["Combatents", "Civilians", "Children"],
+              config: {
+                animateRotate: true,
+              }
+          },
+        });
       } 
       if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
         resetBoard()
@@ -724,26 +721,20 @@ if (country === 'pakistan') {
         document.querySelector('#secondChart').style.display = "flex";
         document.querySelector('.chartInformation').style.display = 'flex';   
         document.querySelector('.deathsHeader').style.display = 'block';
-        document.querySelector('.deathsHeader').innerHTML = `Deaths: ${displayMinimumDeaths} - ${displayMaximumDeaths}`;
+        document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
         new Chart(document.getElementById("secondChart"), {
-            type: 'bar',
-            data: {
-              labels: ["Total", "Civilians", "Children"],
-              datasets: [
-                {
-                  label: "Minimum",
-                  backgroundColor: "#CE2D4F",
-                  data: [displayMinimumDeaths,displayMinimumCivilians,displayMinimumChildren]
-                }, 
-                {
-                  label: "Maximum",
-                  backgroundColor: "#AB1132",
-                  data: [displayMaximumDeaths,displayMaximumCivilians,displayMaximumChildren]
-                }
-              ],
-            },
-        });
+          type: 'doughnut',
+          data: {
+            datasets: [{
+              backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
+              borderColor: "#CE2D4F",
+              borderWidth: '0',
+              data: [minimumPeopleKilled - minimumChildrenKilled - minimumCiviliansKilled,minimumCiviliansKilled,minimumChildrenKilled]
+            }],
+            labels: ["Total", "Civilians", "Children"]
+        },
+      });
     } 
     if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
       resetBoard()
