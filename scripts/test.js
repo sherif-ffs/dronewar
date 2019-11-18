@@ -192,23 +192,20 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                 new Chart(document.getElementById("secondChart"), {
-                    type: 'bar',
-                    data: {
-                      labels: ["Total", "Civilians", "Children"],
-                      datasets: [
-                        {
-                          label: "Minimum",
-                          backgroundColor: "#CE2D4F",
-                          data: [minimumPeopleKilled,minimumCiviliansKilled,minimumChildrenKilled]
-                        }, 
-                        {
-                          label: "Maximum",
-                          backgroundColor: "#AB1132",
-                          data: [maximumPeopleKilled,maximumCiviliansKilled,maximumChildrenKilled]
-                        }
-                      ],
-                    },
-                });
+                  type: 'doughnut',
+                  data: {
+                    datasets: [{
+                      backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
+                      borderColor: "#CE2D4F",
+                      borderWidth: '0',
+                      data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
+                    }],
+                    labels: ["Combatents", "Civilians", "Children"],
+                    config: {
+                      animateRotate: true,
+                    }
+                },
+              });
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
               resetBoard()
@@ -366,23 +363,20 @@ button.addEventListener('click', (e) => {
               document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
               new Chart(document.getElementById("secondChart"), {
-                  type: 'bar',
-                  data: {
-                    labels: ["Total", "Civilians", "Children"],
-                    datasets: [
-                      {
-                        label: "Minimum",
-                        backgroundColor: "#CE2D4F",
-                        data: [minimumPeopleKilled,minimumCiviliansKilled,minimumChildrenKilled]
-                      }, 
-                      {
-                        label: "Maximum",
-                        backgroundColor: "#AB1132",
-                        data: [maximumPeopleKilled,maximumCiviliansKilled,maximumChildrenKilled]
-                      }
-                    ],
-                  },
-              });
+                type: 'doughnut',
+                data: {
+                  datasets: [{
+                    backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
+                    borderColor: "#CE2D4F",
+                    borderWidth: '0',
+                    data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
+                  }],
+                  labels: ["Combatents", "Civilians", "Children"],
+                  config: {
+                    animateRotate: true,
+                  }
+              },
+            });
           } 
           if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
             resetBoard()
