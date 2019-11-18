@@ -1,7 +1,9 @@
 const button = document.querySelector('button');
 let submitValue;
 let products;
-
+let firstChartExists = false;
+let secondChartExists = false;
+let thirdChartExists = false;
 const closeButtons = document.querySelectorAll('.close');
 const clearButton = document.querySelector('.clear');
 
@@ -23,13 +25,18 @@ const resetBoard = () => {
   document.querySelector('.strikesHeader').style.display = "none";
   document.querySelector('.deathsHeader').style.display = "none";
   document.querySelector('.injuriesHeader').style.display = "none";
-
+  window.firstChart.destroy();
+  window.secondChart.destroy();
+  window.thirdChart.destroy();
   document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
   document.querySelector('.displayStrikes').innerHTML = `11,928`;
   document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
   document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
   document.querySelector('.displayChildren').innerHTML = `286 - 457`;
   window.scroll(0,findPos(document.getElementById("title")));
+  firstChartExists = false;
+  secondChartExists = false;
+  thirdChartExists = false;
 }
 closeButtons.forEach((button) => {
   button.addEventListener('click', resetBoard);
@@ -37,10 +44,25 @@ closeButtons.forEach((button) => {
 clearButton.addEventListener('click', resetBoard)
 
 button.addEventListener('click', (e) => {
-    displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
-    displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
-    displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
+    if (secondChartExists) {
+      window.secondChart.destroy();
+      console.log('window.secondChart.destroy():',window.secondChart.destroy())
+      secondChartExists = false;
+    }
+    if (thirdChartExists) {
+      window.thirdChart.destroy();
+      console.log('window.thirdChart.destroy():',window.thirdChart.destroy());
+      thirdChartExists = false;
+    }
+    if (firstChartExists) {
+      window.firstChart.destroy();
+      console.log('window.firstChart.destroy():',window.firstChart.destroy());      
+      firstChartExists = false;
+    }
     country = document.querySelector('.country').value;
+    displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
+      displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
+      displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
     if (country === 'yemen') {
         fetch(`strikes/yemenStrikes.json`).then(function(response) {
             return response.json();
@@ -97,7 +119,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                     document.querySelector('.strikesHeader').style.display = 'block';
                     document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
-                let firstChart = new Chart(document.getElementById("firstChart"), {
+                    window.firstChart = new Chart(document.getElementById("firstChart"), {
                     type: 'line',
                     data: {
                       labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
@@ -110,6 +132,7 @@ button.addEventListener('click', (e) => {
                       ]
                     },
                   });
+                  firstChartExists = true;
 
             }
             let minimumPeopleInjured = 0;
@@ -140,7 +163,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.injuriesHeader').style.display = "block";
                 document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-                let thirdChart = new Chart(document.getElementById("thirdChart"), {
+                window.thirdChart = new Chart(document.getElementById("thirdChart"), {
                     type: 'horizontalBar',
                     data: {
                       labels: ["Injured"],
@@ -157,6 +180,8 @@ button.addEventListener('click', (e) => {
                       ]
                     }
                 });
+                thirdChartExists = true;
+
             }
             let minimumPeopleKilled = 0;
             let maximumPeopleKilled = 0;
@@ -190,7 +215,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.deathsHeader').style.display = 'block';
                 document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-                let secondChart = new Chart(document.getElementById("secondChart"), {
+                window.secondChart = new Chart(document.getElementById("secondChart"), {
                   type: 'doughnut',
                   data: {
                     datasets: [{
@@ -205,6 +230,8 @@ button.addEventListener('click', (e) => {
                     }
                 },
               });
+              secondChartExists = true;
+              console.log('secondChartExists: ', secondChartExists)
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
               resetBoard()
@@ -246,9 +273,6 @@ button.addEventListener('click', (e) => {
             let minimumStrikes = 0;
             let maximumStrikes = 0;
 
-          firstChart.destroy();
-          secondChart.destroy();
-          thirdChart.destroy();
           if (displayNumberOfStrikes) {
               
               for (let i=0; i<products.length; i++) {
@@ -259,6 +283,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('#secondChart').style.display = "flex";
               } else {
                   document.querySelector('#secondChart').style.display = "none";
+                  secondChart.destroy();
                   document.querySelector('.deathsHeader').style.display = "none"
               }
               if (displayPeopleInjured) {
@@ -266,13 +291,14 @@ button.addEventListener('click', (e) => {
               } else {
                   document.querySelector('.injuriesHeader').style.display = "none";
                   document.querySelector('#thirdChart').style.display = "none";
+                  thirdChart.destroy()
               }
                   document.querySelector('.chartInformation').style.display = 'flex';
                   document.querySelector('#firstChart').style.display = "flex";
                   document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                   document.querySelector('.strikesHeader').style.display = 'block';
                   document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
-                  new Chart(document.getElementById("firstChart"), {
+                  window.firstChart = new Chart(document.getElementById("firstChart"), {
                   type: 'line',
                   data: {
                     labels: [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
@@ -285,6 +311,7 @@ button.addEventListener('click', (e) => {
                     ]
                   },
                 });
+                firstChartExists = true;
           }
           let minimumPeopleInjured = 0;
           let maximumPeopleInjured = 0;
@@ -313,7 +340,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('.injuriesHeader').style.display = "block";
               document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-              new Chart(document.getElementById("thirdChart"), {
+              window.thirdChart = new Chart(document.getElementById("thirdChart"), {
                   type: 'horizontalBar',
                   data: {
                     labels: ["Injured"],
@@ -330,6 +357,7 @@ button.addEventListener('click', (e) => {
                     ]
                   }
               });
+              thirdChartExists = true;
 
           }
           let minimumPeopleKilled = 0;
@@ -364,7 +392,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('.deathsHeader').style.display = 'block';
               document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-              new Chart(document.getElementById("secondChart"), {
+              window.secondChart = new Chart(document.getElementById("secondChart"), {
                 type: 'doughnut',
                 data: {
                   datasets: [{
@@ -379,14 +407,15 @@ button.addEventListener('click', (e) => {
                   }
               },
             });
+          secondChartExists = true;
           } 
           if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
             resetBoard()
           }
         })
-        .catch(function(err) {
-          console.log('Fetch problem: ' + err.message);
-        });
+        // .catch(function(err) {
+        //   console.log('Fetch problem: ' + err.message);
+        // });
 
   }
   if (country === 'afghanistan') {
@@ -444,7 +473,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
               document.querySelector('.strikesHeader').style.display = 'block';
               document.querySelector('.strikesHeader').innerHTML = `confirmed strikes: ${minimumStrikes}`;
-          new Chart(document.getElementById("firstChart"), {
+              window.firstChart = new Chart(document.getElementById("firstChart"), {
               type: 'line',
               data: {
                 labels: ['Jan 2015','Feb 2015', 'Mar 2015', 'April 2015', 'May 2015','Jun 2015',
@@ -470,6 +499,7 @@ button.addEventListener('click', (e) => {
                 ]
               },
             });
+            firstChartExists = true;
       }
       let minimumPeopleInjured = 0;
       let maximumPeopleInjured = 0;
@@ -498,7 +528,7 @@ button.addEventListener('click', (e) => {
           document.querySelector('.injuriesHeader').style.display = "block";
           document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-          new Chart(document.getElementById("thirdChart"), {
+          window.thirdChart = new Chart(document.getElementById("thirdChart"), {
               type: 'horizontalBar',
               data: {
                 labels: ["Injured"],
@@ -515,6 +545,7 @@ button.addEventListener('click', (e) => {
                 ]
               }
           });
+          thirdChartExists = true;
       }
       let minimumPeopleKilled = 0;
       let maximumPeopleKilled = 0;
@@ -548,7 +579,7 @@ button.addEventListener('click', (e) => {
           document.querySelector('.deathsHeader').style.display = 'block';
           document.querySelector('.deathsHeader').innerHTML = `minimum peopled killed: ${minimumPeopleKilled}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-          new Chart(document.getElementById("secondChart"), {
+          window.secondChart = new Chart(document.getElementById("secondChart"), {
             type: 'doughnut',
             data: {
               datasets: [{
@@ -563,6 +594,7 @@ button.addEventListener('click', (e) => {
               }
           },
         });
+        secondChartExists = true;
       } 
       if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
         resetBoard()
@@ -628,7 +660,7 @@ if (country === 'pakistan') {
             document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
             document.querySelector('.strikesHeader').style.display = 'block';
             document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: 5,888`;
-        new Chart(document.getElementById("firstChart"), {
+        window.firstChart = new Chart(document.getElementById("firstChart"), {
             type: 'line',
             data: {
               labels: [2004,2005,2006,2007,2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018],
@@ -641,6 +673,7 @@ if (country === 'pakistan') {
               ]
             },
           });
+          firstChartExists = true;
     }
     let minimumPeopleInjured = 0;
     let maximumPeopleInjured = 0;
@@ -669,7 +702,7 @@ if (country === 'pakistan') {
         document.querySelector('.injuriesHeader').style.display = "block";
         document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-        new Chart(document.getElementById("thirdChart"), {
+        window.thirdChart = new Chart(document.getElementById("thirdChart"), {
             type: 'horizontalBar',
             data: {
               labels: ["Injured"],
@@ -686,6 +719,7 @@ if (country === 'pakistan') {
               ]
             }
         });
+        thirdChartExists = true;
     }
     let minimumPeopleKilled = 0;
     let maximumPeopleKilled = 0;
@@ -719,7 +753,7 @@ if (country === 'pakistan') {
         document.querySelector('.deathsHeader').style.display = 'block';
         document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-        new Chart(document.getElementById("secondChart"), {
+        window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'doughnut',
           data: {
             datasets: [{
@@ -731,6 +765,7 @@ if (country === 'pakistan') {
             labels: ["Total", "Civilians", "Children"]
         },
       });
+      secondChartExists = true;
     } 
     if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
       resetBoard()
