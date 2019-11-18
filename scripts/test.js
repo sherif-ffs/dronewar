@@ -31,7 +31,6 @@ const resetBoard = () => {
   document.querySelector('.displayChildren').innerHTML = `286 - 457`;
   window.scroll(0,findPos(document.getElementById("title")));
 }
-
 closeButtons.forEach((button) => {
   button.addEventListener('click', resetBoard);
 })
@@ -42,7 +41,6 @@ button.addEventListener('click', (e) => {
     displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
     displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
     country = document.querySelector('.country').value;
-  
     if (country === 'yemen') {
         fetch(`strikes/yemenStrikes.json`).then(function(response) {
             return response.json();
@@ -99,7 +97,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                     document.querySelector('.strikesHeader').style.display = 'block';
                     document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
-                new Chart(document.getElementById("firstChart"), {
+                let firstChart = new Chart(document.getElementById("firstChart"), {
                     type: 'line',
                     data: {
                       labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
@@ -112,6 +110,7 @@ button.addEventListener('click', (e) => {
                       ]
                     },
                   });
+
             }
             let minimumPeopleInjured = 0;
             let maximumPeopleInjured = 0;
@@ -141,7 +140,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.injuriesHeader').style.display = "block";
                 document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-                new Chart(document.getElementById("thirdChart"), {
+                let thirdChart = new Chart(document.getElementById("thirdChart"), {
                     type: 'horizontalBar',
                     data: {
                       labels: ["Injured"],
@@ -191,7 +190,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.deathsHeader').style.display = 'block';
                 document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-                new Chart(document.getElementById("secondChart"), {
+                let secondChart = new Chart(document.getElementById("secondChart"), {
                   type: 'doughnut',
                   data: {
                     datasets: [{
@@ -247,7 +246,9 @@ button.addEventListener('click', (e) => {
             let minimumStrikes = 0;
             let maximumStrikes = 0;
 
-          
+          firstChart.destroy();
+          secondChart.destroy();
+          thirdChart.destroy();
           if (displayNumberOfStrikes) {
               
               for (let i=0; i<products.length; i++) {
@@ -271,7 +272,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                   document.querySelector('.strikesHeader').style.display = 'block';
                   document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
-              new Chart(document.getElementById("firstChart"), {
+                  new Chart(document.getElementById("firstChart"), {
                   type: 'line',
                   data: {
                     labels: [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
@@ -329,6 +330,7 @@ button.addEventListener('click', (e) => {
                     ]
                   }
               });
+
           }
           let minimumPeopleKilled = 0;
           let maximumPeopleKilled = 0;
@@ -369,7 +371,7 @@ button.addEventListener('click', (e) => {
                     backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
                     borderColor: "#CE2D4F",
                     borderWidth: '0',
-                    data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
+                    data: [maximumPeopleKilled - maximumCiviliansKilled - maximumChildrenKilled,maximumCiviliansKilled,maximumChildrenKilled]
                   }],
                   labels: ["Combatents", "Civilians", "Children"],
                   config: {
