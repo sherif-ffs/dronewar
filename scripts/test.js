@@ -629,13 +629,9 @@ if (country === 'pakistan') {
         new Chart(document.getElementById("firstChart"), {
             type: 'line',
             data: {
-              labels: ['Jan 2015', 'Mar 2015', 'May 2015', 'Jul 2015', 'Sep 2015', 'Nov 2015',
-              'Jan 2016', 'Mar 2016', 'May 2016', 'Jul 2016', 'Sep 2016', 'Nov 2016',
-              'Jan 2017', 'Mar 2017', 'May 2017', 'Jul 2017', 'Sep 2017', 'Nov 2017',
-              'Jan 2018', 'Mar 2018', 'May 2018', 'Jul 2018', 'Sep 2018', 'Nov 2018',
-              'Jan 2019', 'Mar 2019', 'Sep 2019'],
+              labels: [2004,2005,2006,2007,2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018],
               datasets: [{ 
-                  data: [14,11,35,76,100,21,58,14,40,172,315,472,172,626,705,745,222,39,11,30,120,45,857,905,3,2,30],
+                  data: [1,3,2,5,38,54,128,75,50,27,25,13,3,5,1],
                   label: "Number Of Drone Strikes",
                   borderColor: "#CE2D4F",
                   fill: true,
@@ -753,6 +749,6 @@ if (country === 'pakistan') {
   else {
       console.log('country: ', country)
     }
-    window.scroll(0,findPos(document.getElementById("chartsHeader")));
+    window.scroll(0,findPos(document.getElementById("dashboard")));
 
 });
