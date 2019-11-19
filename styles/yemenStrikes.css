@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+table {
+    border: 1px solid red;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+tr {
+    border: 1px solid blue;
+}
+td {
+    border: 1px solid black;
+}

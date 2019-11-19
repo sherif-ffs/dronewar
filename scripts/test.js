@@ -762,7 +762,7 @@ if (country === 'pakistan') {
               borderWidth: '0',
               data: [minimumPeopleKilled - minimumChildrenKilled - minimumCiviliansKilled,minimumCiviliansKilled,minimumChildrenKilled]
             }],
-            labels: ["Total", "Civilians", "Children"]
+            labels: ["Combatents", "Civilians", "Children"]
         },
       });
       secondChartExists = true;
