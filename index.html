@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script defer src="scripts/somaliaStrikes.js"></script>
-    <script defer src="scripts/afghanistanStrikes.js"></script>
-    <script defer src="scripts/pakistanStrikes.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script defer src="scripts/somaliaStrikes.js"></script> -->
+    <!-- <script defer src="scripts/afghanistanStrikes.js"></script> -->
+    <!-- <script defer src="scripts/pakistanStrikes.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js"></script>
     <script defer src="scripts/test.js"></script>
-    <script defer src="scripts/yemenStrikes.js"></script>
+    <!-- <script defer src="scripts/yemenStrikes.js"></script> -->
+    <script defer src="scripts/countryHover.js"></script>
+    <script defer src="scripts/table.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/chartInformation.css">
     <link rel="stylesheet" href="styles/checkbox.css">
     <link rel="stylesheet" href="styles/selects.css">
+    <link rel="stylesheet" href="styles/table.css">
     <link rel="stylesheet" href="https://use.typekit.net/kdc6zlh.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
@@ -118,5 +122,26 @@
             </div>
         </div>
     </div>
+    <section class="tableContainer">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0">
+                <thead class="head">
+                  <!-- <tr> -->
+                    <th>Number</th>
+                    <th>Province</th>
+                    <th>Type of Strike</th>
+                    <th>Casualties</th>
+                    <th>Date</th>
+                  <!-- </tr> -->
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0">
+                <tbody class="table">
+                </tbody>
+              </table>
+            </div>
+          </section>
 </body>
 </html>

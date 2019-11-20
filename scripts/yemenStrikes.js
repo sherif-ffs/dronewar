@@ -42,34 +42,27 @@ let yemenChildrenDeaths = 0;
 //     tr = table.getElementsByTagName("tr");
 //   }, 1000);
 
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("tbl-content");
-  if (tr) {
-      tr = table.getElementsByTagName("tr");
-  } else {
-      console.log('not loaded')
-  }
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
+// function myFunction() {
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("myInput");
+//   filter = input.value.toUpperCase();
+//   table = document.getElementById("tbl-content");
+//   if (tr) {
+//       tr = table.getElementsByTagName("tr");
+//   } else {
+//       console.log('not loaded')
+//   }
+//   for (i = 0; i < tr.length; i++) {
+//     td = tr[i].getElementsByTagName("td")[0];
+//     if (td) {
+//       txtValue = td.textContent || td.innerText;
+//       if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }       
+//   }
+// }
 
 
-// document.querySelector('.yemen').addEventListener('mouseenter', () => {
-//     document.querySelector('.yemen').classList.add('active')
-//     document.querySelector('.yemen').src = 'assets/yemenAfter.svg';
-//   });
-//   document.querySelector('.yemen').addEventListener('mouseleave', () => {
-//     document.querySelector('.yemen').src = 'assets/yemen.svg';
-//   });

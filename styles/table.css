@@ -1,16 +1,25 @@
-  body {
-      /* width: 100vw; */
-  }
+.tableContainer{
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10vh;
+  background-color: white;
+  border: .1px solid rgba(34, 34, 34, .1);
+  margin-bottom: 100px;
+  display: none;
+}
+
   table{
     width: 100%;
     table-layout: fixed;
+    border: .1px solid rgba(34, 34, 34, .1);
   }
   .tbl-header{
     background-color: rgb(223, 85, 115);
+    
     height: 8vh;
    }
   .tbl-content{
-    height:70vh;
+    height: 50vh;
     overflow-x:auto;
     margin-top: 0px;
     border: 1px solid rgba(255,255,255,0.3);
@@ -33,15 +42,8 @@
     font-size: 16px;
     font-family: Avenir;
     color: #222;
-    border-bottom: .1px solid rgba(255, 255, 255, 0.1);
-  }
-    section{
-    margin-left: 15%;
-    margin-right: 15%;
-
   }
 
-  
    /* for custom scrollbar for webkit browser*/
   
   /* ::-webkit-scrollbar {

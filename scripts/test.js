@@ -781,6 +781,4 @@ if (country === 'pakistan') {
       console.log('country: ', country)
     }
     window.scrollBy(0, 800);
-    // window.scroll(0,findPos(document.getElementById("dashboard")));
-
 });

@@ -12,13 +12,4 @@ let pakistanChildrenDeaths = 0;
       }
     }
   };
-  
-  xmlhttp.open("GET", "strikes/pakistanStrikes.json", true);
-  xmlhttp.send();
-
-  document.querySelector('.pakistan').addEventListener('mouseenter', () => {
-    document.querySelector('.pakistan').src = 'assets/pakistanAfter.svg';
-  });
-  document.querySelector('.pakistan').addEventListener('mouseleave', () => {
-    document.querySelector('.pakistan').src = 'assets/pakistan.svg';
-  });
+ 

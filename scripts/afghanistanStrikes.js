@@ -17,10 +17,3 @@ let afghanistanChildrenDeaths = 0;
   xmlhttp.open("GET", "strikes/afghanistanStrikes.json", true);
   xmlhttp.send();
 
-
-  document.querySelector('.afghanistan').addEventListener('mouseenter', () => {
-    document.querySelector('.afghanistan').src = 'assets/afghanistanAfter.svg';
-  });
-  document.querySelector('.afghanistan').addEventListener('mouseleave', () => {
-    document.querySelector('.afghanistan').src = 'assets/afghanistan.svg';
-  });

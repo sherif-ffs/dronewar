@@ -18,10 +18,4 @@ let somaliaChildrenDeaths = 0;
   xmlhttp.send();
 
 
-  document.querySelector('.somalia').addEventListener('mouseenter', () => {
-    document.querySelector('.somalia').src = 'assets/somaliaAfter.svg';
-  });
-  document.querySelector('.somalia').addEventListener('mouseleave', () => {
-    document.querySelector('.somalia').src = 'assets/somalia.svg';
-  });
-
+ 
