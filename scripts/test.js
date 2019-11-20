@@ -128,6 +128,11 @@ button.addEventListener('click', (e) => {
                           label: "Number Of Drone Strikes",
                           borderColor: "#CE2D4F",
                           fill: true,
+                          pointHoverBackgroundColor: '#CE2D4F',
+                          pointRadius: 5,
+                          pointBackgroundColor: '#CE2D4F',
+                          pointHoverRadius: 10
+
                         }
                       ]
                     },
@@ -307,6 +312,10 @@ button.addEventListener('click', (e) => {
                         label: "Number Of Drone Strikes",
                         borderColor: "#CE2D4F",
                         fill: true,
+                        pointHoverBackgroundColor: '#CE2D4F',
+                        pointRadius: 5,
+                        pointBackgroundColor: '#CE2D4F',
+                        pointHoverRadius: 10
                       }
                     ]
                   },
@@ -495,6 +504,10 @@ button.addEventListener('click', (e) => {
                     label: "Number Of Drone Strikes",
                     borderColor: "#CE2D4F",
                     fill: true,
+                    pointHoverBackgroundColor: '#CE2D4F',
+                    pointRadius: 5,
+                    pointBackgroundColor: '#CE2D4F',
+                    pointHoverRadius: 10
                   }
                 ]
               },
@@ -669,6 +682,10 @@ if (country === 'pakistan') {
                   label: "Number Of Drone Strikes",
                   borderColor: "#CE2D4F",
                   fill: true,
+                  pointHoverBackgroundColor: '#CE2D4F',
+                  pointRadius: 5,
+                  pointBackgroundColor: '#CE2D4F',
+                  pointHoverRadius: 10
                 }
               ]
             },
