@@ -121,6 +121,12 @@ body {
     transition: .3s;
     padding-top: 10px;
 }
+.country:focus {
+    cursor: pointer;
+    opacity: .9;
+    transition: .3s;
+    padding-top: 10px;
+}
 .viewAllData {
     font-size: 3rem!important;
     transition: .3s;

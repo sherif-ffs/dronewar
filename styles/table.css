@@ -1,16 +1,30 @@
 .tableContainer{
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 3vh;
+  margin-top: 1vh;
   background-color: white;
-  border: .1px solid rgba(34, 34, 34, .1);
+  /* border: .1px solid rgba(34, 34, 34, .1); */
   margin-bottom: 50px;
   display: none;
 }
   table{
     width: 100%;
     table-layout: fixed;
-    border: .1px solid rgba(34, 34, 34, .1);
+    /* border: .1px solid rgba(34, 34, 34, .1); */
+  }
+  .tableHeader {
+    margin-top: 1vh;
+    display: none;
+    margin-left: 15%;
+    font-size: 50px;
+    font-size: 1.6rem;
+    color: #fafafa;
+    opacity: .6;
+    background-color: #CE2D4F;
+    font-family: Avenir;
+    line-height: 1.6rem;
+    transition: .3s;
+    margin-bottom: 20px;
   }
   .tbl-header{
     background-color: rgb(223, 85, 115);
@@ -34,10 +48,11 @@
   td{
     padding: 15px;
     text-align: left;
-    border: .1px solid rgba(34, 34, 34, .1);
+    border-bottom: 1px dotted rgba(223, 85, 115, .3);
+    border-right: 1px dotted rgba(223, 85, 115,.3);
     vertical-align:middle;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 15px;
     font-family: Avenir;
     color: #222;
   }

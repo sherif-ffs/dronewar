@@ -8,6 +8,7 @@ const afghanistan = document.querySelector('.afghanistan');
 const pakistan = document.querySelector('.pakistan');
 const somalia = document.querySelector('.somalia')
 
+const tableHeader = document.querySelector('.tableHeader');
 const clearTables = document.querySelectorAll('.clearTable');
 
 clearTables.forEach((table) => {
@@ -21,6 +22,7 @@ clearTables.forEach((table) => {
    })
   })
 })
+
 // clearTable.addEventListener('click', () => {
 //   window.scrollBy(0, -600);
 //   setTimeout(function(){ 
@@ -151,7 +153,7 @@ somalia.addEventListener('click', () => {
 
         cell1.innerHTML = i+1;
         cell2.innerHTML = currentObject.Location.toString();
-        cell3.innerHTML = 'Strike type'
+        cell3.innerHTML = currentObject["Strike type"].toString()
         cell4.innerHTML = currentObject["Minimum people killed"].toString()
         cell5.innerHTML = currentObject.Date;
         window.scrollBy(0, 600);
