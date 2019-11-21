@@ -12,7 +12,7 @@ body {
 }
 .container {
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
     background-color: #CE2D4F;
 }
 .titleContainer {
@@ -40,14 +40,6 @@ body {
     opacity: .7;
     font-family: proxima-nova, Arial, Helvetica, sans-serif;
     font-size: 20px;
-}
-.droneImg {
-    flex: 2;
-    width: 70px;
-    margin-top: 3%;
-    height: 70px;
-    opacity: .6;
-    float: right;
 }
 .dashboard {
     width: 90%;
@@ -101,7 +93,7 @@ body {
 
 .detailsByCountry {
     margin-left: 5%;
-    margin-top: 4%;
+    margin-top: 14vh;
     font-size: 1.2rem;
     color: #fff;
     opacity: .6;

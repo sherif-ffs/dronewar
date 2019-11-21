@@ -8,15 +8,29 @@ const afghanistan = document.querySelector('.afghanistan');
 const pakistan = document.querySelector('.pakistan');
 const somalia = document.querySelector('.somalia')
 
-const clearTable = document.querySelector('.clearTable');
+const clearTables = document.querySelectorAll('.clearTable');
 
-clearTable.addEventListener('click', () => {
-  window.scrollBy(0, -600);
+clearTables.forEach((table) => {
+  table.addEventListener('click', () => {
+    window.scrollBy(0, -600);
   setTimeout(function(){ 
   tableContainer.style.display = 'none';   
    }, 500);
-  clearTable.style.display = 'none';
-});
+   clearTables.forEach((table) => {
+     table.style.display ='none'
+   })
+  })
+})
+// clearTable.addEventListener('click', () => {
+//   window.scrollBy(0, -600);
+//   setTimeout(function(){ 
+//   tableContainer.style.display = 'none';   
+//    }, 500);
+//    clearTables.forEach((table) => {
+//      table.style.display ='none'
+//    })
+//   // clearTable.style.display = 'none';
+// });
 
 yemen.addEventListener('click', () => {
   tableContainer.style.display = 'block';
@@ -42,7 +56,10 @@ yemen.addEventListener('click', () => {
         cell5.innerHTML = currentObject.Date;
         const tdItems = [cell1, cell2, cell3, cell4, cell5];
         window.scrollBy(0, 700);
-        clearTable.style.display = 'block';
+        clearTables.forEach((table) => {
+          table.style.display = 'block';
+        })
+        // clearTable.style.display = 'block';
       }
          }
   };
@@ -72,7 +89,10 @@ afghanistan.addEventListener('click', () => {
         cell4.innerHTML = currentObject["Minimum total people killed"].toString()
         cell5.innerHTML = currentObject.Date;
         window.scrollBy(0, 600);
-        clearTable.style.display = 'block';
+        clearTables.forEach((table) => {
+          table.style.display = 'block';
+        })
+        // clearTable.style.display = 'block';
       }
     }
   };
@@ -102,7 +122,10 @@ pakistan.addEventListener('click', () => {
         cell4.innerHTML = currentObject["Minimum total people killed"].toString()
         cell5.innerHTML = currentObject.Date;
         window.scrollBy(0, 600);
-        clearTable.style.display = 'block';
+        clearTables.forEach((table) => {
+          table.style.display = 'block';
+        })
+        // clearTable.style.display = 'block';
       }
     }
   };
@@ -132,7 +155,10 @@ somalia.addEventListener('click', () => {
         cell4.innerHTML = currentObject["Minimum people killed"].toString()
         cell5.innerHTML = currentObject.Date;
         window.scrollBy(0, 600);
-        clearTable.style.display = 'block';
+        clearTables.forEach((table) => {
+          table.style.display = 'block';
+        })
+        // clearTable.style.display = 'block';
       }
     }
   };

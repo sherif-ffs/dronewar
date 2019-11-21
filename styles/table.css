@@ -1,7 +1,7 @@
 .tableContainer{
   margin-left: 15%;
   margin-right: 15%;
-  margin-top: 1vh;
+  margin-top: 3vh;
   background-color: white;
   border: .1px solid rgba(34, 34, 34, .1);
   margin-bottom: 50px;
@@ -52,8 +52,14 @@
     font-family: Avenir;
     line-height: 1.6rem;
     transition: .3s;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
   }
+  .backToTop {
+    margin-top: 1%!important;
+    margin-bottom: 100px;
+    text-decoration: none;
+    font-weight: 700;
+}
   .clearTable:hover {
     transition: .3s;
     color: #fff;
