@@ -17,7 +17,7 @@ clearTable.addEventListener('click', () => {
    }, 500);
   clearTable.style.display = 'none';
 });
-let table;
+
 yemen.addEventListener('click', () => {
   tableContainer.style.display = 'block';
   xmlhttps.onreadystatechange = function() {
@@ -27,19 +27,14 @@ yemen.addEventListener('click', () => {
       for (let i=0; i  <droneStrikesData.length; i++) {
 
         let currentObject = droneStrikesData[i];
-        table = document.querySelector('.table');
-        const newRow = document.createElement('tr');
-        newRow.classList = 'newRow';
-        table.appendChild(newRow);
-        tr = table.querySelectorAll(".newRow");
+        const table = document.querySelector('.table')
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3=  row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
 
-        var cell1 = newRow.insertCell(0);
-        var cell2 = newRow.insertCell(1);
-        var cell3=  newRow.insertCell(2);
-        var cell4 = newRow.insertCell(3);
-        var cell5 = newRow.insertCell(4);
-
-        // console.log(tdItems)
         cell1.innerHTML = i+1;
         cell2.innerHTML = currentObject.Province.toString();
         cell3.innerHTML = currentObject["Type of attack"].toString()

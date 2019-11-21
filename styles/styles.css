@@ -13,8 +13,13 @@ body {
 .container {
     width: 100%;
     padding-bottom: 50px;
-    /* height: 200vh; */
     background-color: #CE2D4F;
+}
+.titleContainer {
+    width: 100%;
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
 }
 .container h1 {
     margin-left: 5%;
@@ -22,6 +27,7 @@ body {
     font-size: 50px;
     font-size: 3rem;
     font-weight: 900;
+    flex: 4;
     font-family: Avenir;
     color: #501522;
     text-shadow: 0px 1px #222;
@@ -35,13 +41,20 @@ body {
     font-family: proxima-nova, Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
+.droneImg {
+    flex: 2;
+    width: 70px;
+    margin-top: 3%;
+    height: 70px;
+    opacity: .6;
+    float: right;
+}
 .dashboard {
     width: 90%;
     margin-top:2%;
     margin-left: 5%;
     display: flex;
     flex-basis: 100%;
-    /* padding-bottom: 20px; */
     flex-direction: row;
     border: 3px solid #211A1E;
     box-shadow: 15px 15px #211A1E;
