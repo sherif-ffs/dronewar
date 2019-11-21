@@ -16,6 +16,7 @@
     opacity: .4;
     line-height: 70px;
     margin-left: 5%;
+    transition: .3s;
 }
 .name:hover {
     opacity: .8;
