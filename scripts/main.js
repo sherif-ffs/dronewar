@@ -64,7 +64,7 @@ button.addEventListener('click', (e) => {
       displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
       displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
     if (country === 'yemen') {
-        fetch(`strikes/yemenStrikes.json`).then(function(response) {
+        fetch(`json/yemenStrikes.json`).then(function(response) {
             return response.json();
           })
           .then(function(json) {
@@ -248,7 +248,7 @@ button.addEventListener('click', (e) => {
 
     } 
     if (country === 'somalia') {
-        fetch(`strikes/somaliaStrikes.json`).then(function(response) {
+        fetch(`json/somaliaStrikes.json`).then(function(response) {
             return response.json();
           })
           .then(function(json) {
@@ -428,7 +428,7 @@ button.addEventListener('click', (e) => {
 
   }
   if (country === 'afghanistan') {
-    fetch(`strikes/afghanistanStrikes.json`).then(function(response) {
+    fetch(`json/afghanistanStrikes.json`).then(function(response) {
         return response.json();
       })
       .then(function(json) {
@@ -619,7 +619,7 @@ button.addEventListener('click', (e) => {
 
 }
 if (country === 'pakistan') {
-  fetch(`strikes/pakistanStrikes.json`).then(function(response) {
+  fetch(`json/pakistanStrikes.json`).then(function(response) {
       return response.json();
     })
     .then(function(json) {

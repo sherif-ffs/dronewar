@@ -72,7 +72,7 @@ yemen.addEventListener('click', () => {
         }
            }
     };
-    xmlhttps.open("GET", "strikes/yemenStrikes.json", true);
+    xmlhttps.open("GET", "json/yemenStrikes.json", true);
     xmlhttps.send();
   } else {
     window.scrollBy(0, -600);
@@ -117,7 +117,7 @@ afghanistan.addEventListener('click', () => {
         }
       }
     };
-    xmlhttps.open("GET", "strikes/afghanistanStrikes.json", true);
+    xmlhttps.open("GET", "json/afghanistanStrikes.json", true);
     xmlhttps.send();
   } else {
     window.scrollBy(0, -600);
@@ -162,7 +162,7 @@ pakistan.addEventListener('click', () => {
         }
       }
     };
-    xmlhttps.open("GET", "strikes/pakistanStrikes.json", true);
+    xmlhttps.open("GET", "json/pakistanStrikes.json", true);
     xmlhttps.send();
   } else {
     window.scrollBy(0, -600);
@@ -206,7 +206,7 @@ somalia.addEventListener('click', () => {
           }
         }
       };
-      xmlhttps.open("GET", "strikes/somaliaStrikes.json", true);
+      xmlhttps.open("GET", "json/somaliaStrikes.json", true);
       xmlhttps.send();
   } else {
       window.scrollBy(0, -600);
