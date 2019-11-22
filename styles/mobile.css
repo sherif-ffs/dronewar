@@ -93,12 +93,15 @@
         margin-top: 0%;
         flex-direction: column;
     }
+    .chartHeader {
+        margin-top: 30%!important;
+    }
     .chart {
         width: 100%!important;
         display: flex;
         height: 170px;
         flex: 1;
-        margin-top: 3%;
+        margin-top: 3%!important;
     }
       .clear {
         margin-left: 2%;

@@ -13,13 +13,13 @@
     font-size: 18px;
     font-weight: 700;
     color: #fafafa;
-    opacity: .4;
+    opacity: .3;
     line-height: 70px;
     margin-left: 5%;
     transition: .3s;
 }
 .name:hover {
-    opacity: .8;
+    opacity: .6;
     transition: .3s;
     cursor: pointer;
 }

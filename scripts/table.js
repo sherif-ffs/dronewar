@@ -29,17 +29,6 @@ clearTables.forEach((table) => {
   })
 })
 
-// clearTable.addEventListener('click', () => {
-//   window.scrollBy(0, -600);
-//   setTimeout(function(){ 
-//   tableContainer.style.display = 'none';   
-//    }, 500);
-//    clearTables.forEach((table) => {
-//      table.style.display ='none'
-//    })
-//   // clearTable.style.display = 'none';
-// });
-
 yemen.addEventListener('click', () => {
   if (!yemenIsActive) {
     tableContainer.style.display = 'block';
