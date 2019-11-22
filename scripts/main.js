@@ -46,17 +46,14 @@ clearButton.addEventListener('click', resetBoard)
 button.addEventListener('click', (e) => {
     if (secondChartExists) {
       window.secondChart.destroy();
-      console.log('window.secondChart.destroy():',window.secondChart.destroy())
       secondChartExists = false;
     }
     if (thirdChartExists) {
       window.thirdChart.destroy();
-      console.log('window.thirdChart.destroy():',window.thirdChart.destroy());
       thirdChartExists = false;
     }
     if (firstChartExists) {
       window.firstChart.destroy();
-      console.log('window.firstChart.destroy():',window.firstChart.destroy());      
       firstChartExists = false;
     }
     country = document.querySelector('.country').value;
@@ -150,11 +147,9 @@ button.addEventListener('click', (e) => {
                 }
                 if (displayNumberOfStrikes) {
                     document.querySelector('#firstChart').style.display = "flex";
-                    console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
                 } else {
                     document.querySelector('#firstChart').style.display = "none";
                     document.querySelector('.strikesHeader').style.display = "none";             
-                    console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
                 }
                 if (displayPeopleKilled) {
                     document.querySelector('#secondChart').style.display = "flex";
@@ -236,7 +231,6 @@ button.addEventListener('click', (e) => {
                 },
               });
               secondChartExists = true;
-              console.log('secondChartExists: ', secondChartExists)
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
               resetBoard()
@@ -331,11 +325,9 @@ button.addEventListener('click', (e) => {
               }
               if (displayNumberOfStrikes) {
                   document.querySelector('#firstChart').style.display = "flex";
-                  console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
               } else {
                   document.querySelector('#firstChart').style.display = "none";
                   document.querySelector('.strikesHeader').style.display = "none";             
-                  console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
               }
               if (displayPeopleKilled) {
                   document.querySelector('#secondChart').style.display = "flex";
@@ -422,9 +414,9 @@ button.addEventListener('click', (e) => {
             resetBoard()
           }
         })
-        // .catch(function(err) {
-        //   console.log('Fetch problem: ' + err.message);
-        // });
+        .catch(function(err) {
+          console.log('Fetch problem: ' + err.message);
+        });
 
   }
   if (country === 'afghanistan') {
@@ -523,11 +515,9 @@ button.addEventListener('click', (e) => {
           }
           if (displayNumberOfStrikes) {
               document.querySelector('#firstChart').style.display = "flex";
-              console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
           } else {
               document.querySelector('#firstChart').style.display = "none";
               document.querySelector('.strikesHeader').style.display = "none";             
-              console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
           }
           if (displayPeopleKilled) {
               document.querySelector('#secondChart').style.display = "flex";
@@ -701,11 +691,9 @@ if (country === 'pakistan') {
         }
         if (displayNumberOfStrikes) {
             document.querySelector('#firstChart').style.display = "flex";
-            console.log('firstChart in block:' ,document.querySelector('#firstChart').style.display);
         } else {
             document.querySelector('#firstChart').style.display = "none";
             document.querySelector('.strikesHeader').style.display = "none";             
-            console.log('firstChart out of block:' ,document.querySelector('#firstChart').style.display);
         }
         if (displayPeopleKilled) {
             document.querySelector('#secondChart').style.display = "flex";
@@ -794,8 +782,8 @@ if (country === 'pakistan') {
 
 }
   
-  else {
-      console.log('country: ', country)
-    }
+  // else {
+  //     console.log('country: ', country)
+  //   }
     window.scrollBy(0, 800);
 });
