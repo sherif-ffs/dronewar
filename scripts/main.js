@@ -6,6 +6,7 @@ let secondChartExists = false;
 let thirdChartExists = false;
 const closeButtons = document.querySelectorAll('.close');
 const clearButton = document.querySelector('.clear');
+const returnToDashboard = document.querySelector('.returnToDashboard');
 
 function findPos(obj) {
   let curtop = 0;
@@ -41,7 +42,8 @@ const resetBoard = () => {
 closeButtons.forEach((button) => {
   button.addEventListener('click', resetBoard);
 })
-clearButton.addEventListener('click', resetBoard)
+clearButton.addEventListener('click', resetBoard);
+returnToDashboard.addEventListener('click', resetBoard);
 
 button.addEventListener('click', (e) => {
     if (secondChartExists) {

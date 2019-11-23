@@ -29,6 +29,8 @@ clearTables.forEach((table) => {
   })
 })
 
+
+
 yemen.addEventListener('click', () => {
   if (!yemenIsActive) {
     tableContainer.style.display = 'block';
@@ -73,7 +75,6 @@ yemen.addEventListener('click', () => {
       })
       yemenIsActive = false;
   }
-  
 })
  
 afghanistan.addEventListener('click', () => {
