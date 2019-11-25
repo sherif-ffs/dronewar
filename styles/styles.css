@@ -63,7 +63,7 @@ body {
 }
 .currentStatistics .subTitle{
     margin-left: 10%;
-    padding-top: 1%;
+    margin-top: -5%;
     font-size: .8rem;
     letter-spacing: 3px;
     font-weight: 600;
@@ -84,7 +84,7 @@ body {
 }
 .exploreData, .search {
     background-color: #211A1E;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 .tab {
     display: flex;

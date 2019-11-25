@@ -112,12 +112,12 @@ button.addEventListener('click', (e) => {
                     document.querySelector('.injuriesHeader').style.display = "none";
                     document.querySelector('#thirdChart').style.display = "none";
                 }
-
                     document.querySelector('.chartInformation').style.display = 'flex';
                     document.querySelector('#firstChart').style.display = "flex";
-                  document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
+                    document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                     document.querySelector('.strikesHeader').style.display = 'block';
                     document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
+
                     window.firstChart = new Chart(document.getElementById("firstChart"), {
                     type: 'line',
                     data: {
@@ -139,6 +139,7 @@ button.addEventListener('click', (e) => {
                   firstChartExists = true;
 
             }
+
             let minimumPeopleInjured = 0;
             let maximumPeopleInjured = 0;
 
@@ -158,13 +159,14 @@ button.addEventListener('click', (e) => {
                 } else {
                     document.querySelector('#secondChart').style.display = "none";
                     document.querySelector('.deathsHeader').style.display = "none";
-
                 }
+
                 document.querySelector('#thirdChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';
                 document.querySelector('.injuriesHeader').style.display = "block";
                 document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
+
                 window.thirdChart = new Chart(document.getElementById("thirdChart"), {
                     type: 'horizontalBar',
                     data: {
@@ -183,7 +185,6 @@ button.addEventListener('click', (e) => {
                     }
                 });
                 thirdChartExists = true;
-
             }
             let minimumPeopleKilled = 0;
             let maximumPeopleKilled = 0;
