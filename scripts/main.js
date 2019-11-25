@@ -4,6 +4,7 @@ let products;
 let firstChartExists = false;
 let secondChartExists = false;
 let thirdChartExists = false;
+
 const closeButtons = document.querySelectorAll('.close');
 const clearButton = document.querySelector('.clear');
 const returnToDashboard = document.querySelector('.returnToDashboard');
@@ -16,6 +17,27 @@ function findPos(obj) {
       } while (obj = obj.offsetParent);
   return [curtop];
   }
+}
+const destroyExistingCharts = () => {
+  if (secondChartExists) {
+    window.secondChart.destroy();
+    secondChartExists = false;
+  }
+  if (thirdChartExists) {
+    window.thirdChart.destroy();
+    thirdChartExists = false;
+  }
+  if (firstChartExists) {
+    window.firstChart.destroy();
+    firstChartExists = false;
+  }
+}
+
+const getDataFromForm = () => {
+  country = document.querySelector('.country').value;
+  displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
+  displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
+  displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
 }
 
 const resetBoard = () => {
@@ -39,29 +61,17 @@ const resetBoard = () => {
   secondChartExists = false;
   thirdChartExists = false;
 }
+
 closeButtons.forEach((button) => {
   button.addEventListener('click', resetBoard);
-})
+});
+
 clearButton.addEventListener('click', resetBoard);
 returnToDashboard.addEventListener('click', resetBoard);
 
 button.addEventListener('click', (e) => {
-    if (secondChartExists) {
-      window.secondChart.destroy();
-      secondChartExists = false;
-    }
-    if (thirdChartExists) {
-      window.thirdChart.destroy();
-      thirdChartExists = false;
-    }
-    if (firstChartExists) {
-      window.firstChart.destroy();
-      firstChartExists = false;
-    }
-    country = document.querySelector('.country').value;
-    displayPeopleKilled = document.querySelector('.displayPeopleKilled').checked;
-      displayPeopleInjured = document.querySelector('.displayPeopleInjured').checked;
-      displayNumberOfStrikes = document.querySelector('.displayNumberOfStrikes').checked;
+    destroyExistingCharts();
+    getDataFromForm();
     if (country === 'yemen') {
         fetch(`json/yemenStrikes.json`).then(function(response) {
             return response.json();
@@ -168,7 +178,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
                 window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-                    type: 'horizontalBar',
+                    type: 'bar',
                     data: {
                       labels: ["Injured"],
                       datasets: [
@@ -250,7 +260,6 @@ button.addEventListener('click', (e) => {
           })
           .then(function(json) {
             let products = json.somalia;
-            let labels=[];
             let displayMaximumStrikes = 0;
             let displayMaximumDeaths = 0;
             let displayMinimumDeaths = 0;
@@ -626,7 +635,7 @@ if (country === 'pakistan') {
       let displayMaximumChildren = 0;
       let displayMinimumChildren = 0;
       for (let i=0; i<products.length; i++) {
-        displayMaximumStrikes += parseInt(products[i].Index);
+        displayMaximumStrikes = products[products.length - 1].Index;
         displayMaximumDeaths += parseInt(products[i]["Maximum total people killed"]);
         displayMinimumDeaths += parseInt(products[i]["Minimum total people killed"]);
         displayMaximumCivilians += parseInt(products[i]["Maximum civilians reported killed"]);
@@ -635,7 +644,7 @@ if (country === 'pakistan') {
         displayMinimumChildren += parseInt(products[i]["Minimum children reported killed"]);
       }
       document.querySelector('.sectionHeader').innerHTML =`current statistics in ${country}`;
-      document.querySelector('.displayStrikes').innerHTML = `430`;
+      document.querySelector('.displayStrikes').innerHTML = `${displayMaximumStrikes}`;
       document.querySelector('.displayDeaths').innerHTML = `${displayMinimumDeaths} - ${displayMaximumDeaths}`;
       document.querySelector('.displayCivilians').innerHTML = `${displayMinimumCivilians} - ${displayMaximumCivilians}`;
       document.querySelector('.displayChildren').innerHTML = `${displayMinimumChildren} - ${displayMaximumChildren}`
