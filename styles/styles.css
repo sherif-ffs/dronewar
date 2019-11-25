@@ -67,7 +67,7 @@ body {
     font-size: .8rem;
     letter-spacing: 3px;
     font-weight: 600;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     color: rgb(80, 21, 34);
 }
 .currentStatistics .last{
@@ -80,7 +80,7 @@ body {
     opacity: .7;
     letter-spacing: 0px;
     color: #fff;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
 }
 .exploreData, .search {
     background-color: #211A1E;

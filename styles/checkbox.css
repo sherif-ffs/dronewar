@@ -17,7 +17,7 @@
     font-size: .8rem;
     letter-spacing: 1px;
     font-weight: 600;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     color: #fafafa;
     opacity: .6;
 }

@@ -12,7 +12,7 @@
     padding: .5rem 2.25rem .5rem 1rem;
     line-height: 1.5;
     font-weight: 600;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     color: #fafafa;
     opacity: .6;
     background-color: transparent;
@@ -129,7 +129,7 @@ button {
     background-color: #CE2D4F;
     font-size: 1.2rem;
     color: white;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     transition: .3s;
     box-shadow: 0px 4px #6b1728;
     font-weight: 800;
