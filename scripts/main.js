@@ -429,7 +429,6 @@ button.addEventListener('click', (e) => {
         .catch(function(err) {
           console.log('Fetch problem: ' + err.message);
         });
-
   }
   if (country === 'afghanistan') {
     fetch(`json/afghanistanStrikes.json`).then(function(response) {
