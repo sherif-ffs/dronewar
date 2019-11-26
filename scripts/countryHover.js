@@ -3,6 +3,25 @@ const pakistanImage = document.querySelector('.pakistan');
 const afghanistanImage = document.querySelector('.afghanistan');
 const somaliaImage = document.querySelector('.somalia');
 
+const droneImages = document.querySelectorAll('.droneImg');
+const droneImageContainer = document.querySelector('.droneImage');
+console.log('droneImages: ', droneImages);
+
+droneImages.forEach((droneImage) => {
+  droneImage.addEventListener('mouseenter', () => {
+    droneImage.style.opacity = '.5';
+  })
+  droneImage.addEventListener('mouseleave', () => {
+    droneImage.style.opacity = '.1'
+  })
+  droneImage.addEventListener('click', (e) => {
+    e.target.style.display = 'none';
+    droneImageContainer.appendChild(droneImage);
+    setTimeout(function(){ 
+      e.target.style.display = "block";      
+     }, 1000);
+  })
+})
 yemenImage.addEventListener('mouseenter', () => {
   yemenImage.classList.add('active');
   yemenImage.src = 'assets/yemenAfter.svg';
