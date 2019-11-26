@@ -9,10 +9,12 @@ console.log('droneImages: ', droneImages);
 
 droneImages.forEach((droneImage) => {
   droneImage.addEventListener('mouseenter', () => {
-    droneImage.style.opacity = '.5';
+    droneImage.style.opacity = '1';
+    droneImage.src = 'assets/droneColor.svg';
   })
   droneImage.addEventListener('mouseleave', () => {
-    droneImage.style.opacity = '.1'
+    droneImage.style.opacity = '.1';
+    droneImage.src = 'assets/drone.svg';
   })
   droneImage.addEventListener('click', (e) => {
     e.target.style.display = 'none';

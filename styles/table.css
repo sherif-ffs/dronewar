@@ -3,14 +3,12 @@
   margin-right: 15%;
   margin-top: 1vh;
   background-color: white;
-  /* border: .1px solid rgba(34, 34, 34, .1); */
   margin-bottom: 50px;
   display: none;
 }
   table{
     width: 100%;
     table-layout: fixed;
-    /* border: .1px solid rgba(34, 34, 34, .1); */
   }
   .tableHeader {
     margin-top: 1vh;
@@ -27,7 +25,7 @@
     margin-bottom: 20px;
   }
   .tbl-header{
-    background-color: rgb(223, 85, 115);
+    background-color: #a52740;
     height: 8vh;
    }
   .tbl-content{
