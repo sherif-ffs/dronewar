@@ -1,0 +1,84 @@
+@media screen and (max-width: 1025px) and (min-width: 601px) {
+    #dashboard {
+        /* flex-direction: column; */
+        margin-top: 5vh;
+        width: 100%;
+        height: 45vh;
+        margin-left: 0%;
+        flex-basis: 100%;
+        box-shadow: 0px 0px #211A1E;
+    }
+    .numberTitle {
+        font-size: 40px!important;
+    }
+    .subTitle {
+        font-size: 15px!important;
+    }
+    .buttonRow {
+        margin-top: 5%!important;
+    }
+    button {
+        margin-top: 5%;
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        width: 43%!important;
+        height: 4vh!important;
+        background-color: #CE2D4F;
+        font-size: 15px!important;
+        color: white;
+        font-family: Avenir, proxima-nova, Helvetica, sans-serif;
+        transition: .3s;
+        box-shadow: 0px 4px #6b1728;
+        font-weight: 800;
+    }
+    .countries {
+        width: 95%!important;
+        margin-left: 1.5%!important;
+    }
+    .country {
+        flex: 1;
+        width: 100%!important;
+        margin-left: 2%;
+        transition: .3s;
+    }
+    .tableContainer{
+        margin-left: 5%!important;
+        margin-right: 5%!important;
+        margin-top: 1vh;
+        background-color: white;
+        margin-bottom: 50px;
+        display: none;
+      }
+
+    .footer {
+        flex-direction: column!important;
+        height: auto!important;
+    }
+    .nameContainer {
+        display: flex;
+        flex: 4!important;
+        flex-direction: row;
+    }
+    .name {
+        font-family: Avenir;
+        font-size: 25px!important;
+        font-weight: 700;
+        color: #fafafa;
+        opacity: .3;
+        line-height: 70px;
+        transition: .3s;
+    }
+    .droneImage {
+        flex: 0!important;
+    }
+    .droneImg {
+        flex: 1;
+        display: flex;
+        width: auto;
+        margin-top: 40px;
+        height: 50px;
+        opacity: .1;
+    }
+    
+}
