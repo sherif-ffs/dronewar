@@ -130,6 +130,22 @@ button.addEventListener('click', (e) => {
 
                     window.firstChart = new Chart(document.getElementById("firstChart"), {
                     type: 'line',
+                    options: {
+                      scales: {
+                        yAxes: [{
+                          stacked: true,
+                          gridLines: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)"
+                          }
+                        }],
+                        xAxes: [{
+                          gridLines: {
+                            display: false,
+                          }
+                        }]
+                      },
+                    },
                     data: {
                       labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
                       datasets: [{ 
@@ -179,6 +195,21 @@ button.addEventListener('click', (e) => {
 
                 window.thirdChart = new Chart(document.getElementById("thirdChart"), {
                     type: 'bar',
+                    options: {
+                      scales: {
+                        yAxes: [{
+                          gridLines: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)"
+                          }
+                        }],
+                        xAxes: [{
+                          gridLines: {
+                            display: false,
+                          }
+                        }]
+                      },
+                    },
                     data: {
                       labels: ["Injured"],
                       datasets: [
@@ -243,6 +274,7 @@ button.addEventListener('click', (e) => {
                     }
                 },
               });
+              
               secondChartExists = true;
             } 
             if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
@@ -311,6 +343,22 @@ button.addEventListener('click', (e) => {
                   document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
                   window.firstChart = new Chart(document.getElementById("firstChart"), {
                   type: 'line',
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        stacked: true,
+                        gridLines: {
+                          display: true,
+                          color: "rgba(255,99,132,0.2)"
+                        }
+                      }],
+                      xAxes: [{
+                        gridLines: {
+                          display: false,
+                        }
+                      }]
+                    },
+                  },
                   data: {
                     labels: [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
                     datasets: [{ 
@@ -354,7 +402,22 @@ button.addEventListener('click', (e) => {
               document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
               window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-                  type: 'horizontalBar',
+                  type: 'bar',
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        gridLines: {
+                          display: true,
+                          color: "rgba(255,99,132,0.2)"
+                        }
+                      }],
+                      xAxes: [{
+                        gridLines: {
+                          display: false,
+                        }
+                      }]
+                    },
+                  },
                   data: {
                     labels: ["Injured"],
                     datasets: [
@@ -487,6 +550,22 @@ button.addEventListener('click', (e) => {
               document.querySelector('.strikesHeader').innerHTML = `confirmed strikes: ${minimumStrikes}`;
               window.firstChart = new Chart(document.getElementById("firstChart"), {
               type: 'line',
+              options: {
+                scales: {
+                  yAxes: [{
+                    stacked: true,
+                    gridLines: {
+                      display: true,
+                      color: "rgba(255,99,132,0.2)"
+                    }
+                  }],
+                  xAxes: [{
+                    gridLines: {
+                      display: false,
+                    }
+                  }]
+                },
+              },
               data: {
                 labels: ['Jan 2015','Feb 2015', 'Mar 2015', 'April 2015', 'May 2015','Jun 2015',
                  'Jul 2015', 'Aug 2015', 'Sep 2015', 'Oct 2015', 'Nov 2015', 'Dec 2015',
@@ -501,16 +580,17 @@ button.addEventListener('click', (e) => {
                 datasets: [{ 
                     data: [10,4,9,2,14,21,22,32,18,82,9,12,41,17,
                     5,9,18,22,92,80,140,175,11,461,111,161,176,450,
-                  398,307,358,387,212,10,25,14,9,9,14,18,20,105,8,
-                  39,465,392,495,411,368,265,301,683,719,568,
-                  537,810,1113],
+                    398,307,358,387,212,10,25,14,9,9,14,18,20,105,8,
+                    39,465,392,495,411,368,265,301,683,719,568,
+                    537,810,1113],
                     label: "Number Of Drone Strikes",
                     borderColor: "#CE2D4F",
-                    fill: true,
                     pointHoverBackgroundColor: '#CE2D4F',
                     pointRadius: 5,
                     pointBackgroundColor: '#CE2D4F',
-                    pointHoverRadius: 10
+                    pointHoverRadius: 10,
+                    fill: true,
+                    fillColor: "rgba(255,99,132,0.9)"
                   }
                 ]
               },
@@ -543,7 +623,22 @@ button.addEventListener('click', (e) => {
           document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
           window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-              type: 'horizontalBar',
+              type: 'bar',
+              options: {
+                scales: {
+                  yAxes: [{
+                    gridLines: {
+                      display: true,
+                      color: "rgba(255,99,132,0.2)"
+                    }
+                  }],
+                  xAxes: [{
+                    gridLines: {
+                      display: false,
+                    }
+                  }]
+                },
+              },
               data: {
                 labels: ["Injured"],
                 datasets: [
@@ -676,6 +771,22 @@ if (country === 'pakistan') {
             document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: 5,888`;
         window.firstChart = new Chart(document.getElementById("firstChart"), {
             type: 'line',
+            options: {
+              scales: {
+                yAxes: [{
+                  stacked: true,
+                  gridLines: {
+                    display: true,
+                    color: "rgba(255,99,132,0.2)"
+                  }
+                }],
+                xAxes: [{
+                  gridLines: {
+                    display: false,
+                  }
+                }]
+              },
+            },
             data: {
               labels: [2004,2005,2006,2007,2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018],
               datasets: [{ 
@@ -719,7 +830,22 @@ if (country === 'pakistan') {
         document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
         window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-            type: 'horizontalBar',
+            type: 'bar',
+            options: {
+              scales: {
+                yAxes: [{
+                  gridLines: {
+                    display: true,
+                    color: "rgba(255,99,132,0.2)"
+                  }
+                }],
+                xAxes: [{
+                  gridLines: {
+                    display: false,
+                  }
+                }]
+              },
+            },
             data: {
               labels: ["Injured"],
               datasets: [
