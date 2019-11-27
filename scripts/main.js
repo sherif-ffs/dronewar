@@ -1,7 +1,7 @@
 const button = document.querySelector('button');
 
 let submitValue;
-let products; // contains json data
+let products;
 
 let firstChartExists = false;
 let secondChartExists = false;
@@ -20,6 +20,7 @@ function findPos(obj) {
   return [curtop];
   }
 }
+
 const destroyExistingCharts = () => {
   if (secondChartExists) {
     window.secondChart.destroy();
@@ -280,7 +281,7 @@ button.addEventListener('click', (e) => {
           year2013MaxInjuries,year2014MaxInjuries,year2015MaxInjuries,
           year2016MaxInjuries,year2017MaxInjuries,year2018MaxInjuries,year2019MaxInjuries];
 
-            if (displayNumberOfStrikes) { // checks if the display strikes checkbox is checked
+            if (displayNumberOfStrikes) { 
                 
                 for (let i=0; i<products.length; i++) {
                     minimumStrikes += parseInt(products[i]['Minimum number of strikes']);
@@ -378,16 +379,30 @@ button.addEventListener('click', (e) => {
                       display: true,
                       text: `Casualties in ${country}`
                     },
+                    // legend: {
+                    //   labels: {
+                    //       // This more specific font property overrides the global property
+                    //       fontColor: '#CE2D4F',
+                    //       defaultFontFamily: "Avenir",
+                    //       defaultFontSize: 20
+                    //   }
+                    // },
                     scales: {
                       yAxes: [{
                         gridLines: {
                           display: true,
                           color: "rgba(255,99,132,0.2)"
+                        },
+                        ticks: {
+                          // fontSize: 20
                         }
                       }],
                       xAxes: [{
                         gridLines: {
                           display: false,
+                        },
+                        ticks: {
+                          // fontSize: 20
                         }
                       }]
                     },
@@ -532,30 +547,12 @@ button.addEventListener('click', (e) => {
           ]
           },
         });
+    }          
+    secondChartExists = true;
+    if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
+      resetBoard()
     }
-    
-              //   window.secondChart = new Chart(document.getElementById("secondChart"), {
-              //     type: 'doughnut',
-              //     data: {
-              //       datasets: [{
-              //         backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
-              //         borderColor: "#CE2D4F",
-              //         borderWidth: '0',
-              //         data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
-              //       }],
-              //       labels: ["Combatents", "Civilians", "Children"],
-              //       config: {
-              //         animateRotate: true,
-              //       }
-              //   },
-              // });
-              
-              secondChartExists = true;
-              if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
-                resetBoard()
-              }
-              }
-
+    }
           )}
     if (country === 'somalia') {
         fetch(`json/somaliaStrikes.json`).then(function(response) {
@@ -903,38 +900,6 @@ button.addEventListener('click', (e) => {
                 ]
                 },
               });
-              // window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-              //     type: 'bar',
-              //     options: {
-              //       scales: {
-              //         yAxes: [{
-              //           gridLines: {
-              //             display: true,
-              //             color: "rgba(255,99,132,0.2)"
-              //           }
-              //         }],
-              //         xAxes: [{
-              //           gridLines: {
-              //             display: false,
-              //           }
-              //         }]
-              //       },
-              //     },
-              //     data: {
-              //       labels: ["People Injured"],
-              //       datasets: [
-              //         {
-              //           label: "Minimum",
-              //           backgroundColor: "#CE2D4F",
-              //           data: [minimumPeopleInjured]
-              //         }, {
-              //           label: "Maximum",
-              //           backgroundColor: "#AB1132",
-              //           data: [maximumPeopleInjured]
-              //         }
-              //       ]
-              //     }
-              // });
               thirdChartExists = true;
 
           }
@@ -1022,22 +987,6 @@ button.addEventListener('click', (e) => {
             ]
           },
         });
-
-            //   window.secondChart = new Chart(document.getElementById("secondChart"), {
-            //     type: 'doughnut',
-            //     data: {
-            //       datasets: [{
-            //         backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
-            //         borderColor: "#CE2D4F",
-            //         borderWidth: '0',
-            //         data: [maximumPeopleKilled - maximumCiviliansKilled - maximumChildrenKilled,maximumCiviliansKilled,maximumChildrenKilled]
-            //       }],
-            //       labels: ["Combatents", "Civilians", "Children"],
-            //       config: {
-            //         animateRotate: true,
-            //       }
-            //   },
-            // });
           secondChartExists = true;
           } 
           if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
@@ -1300,38 +1249,6 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
             ]
             },
           });
-          // window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-          //     type: 'bar',
-          //     options: {
-          //       scales: {
-          //         yAxes: [{
-          //           gridLines: {
-          //             display: true,
-          //             color: "rgba(255,99,132,0.2)"
-          //           }
-          //         }],
-          //         xAxes: [{
-          //           gridLines: {
-          //             display: false,
-          //           }
-          //         }]
-          //       },
-          //     },
-          //     data: {
-          //       labels: ["People Injured"],
-          //       datasets: [
-          //         {
-          //           label: "Minimum",
-          //           backgroundColor: "#CE2D4F",
-          //           data: [562]
-          //         }, {
-          //           label: "Maximum",
-          //           backgroundColor: "#AB1132",
-          //           data: [844]
-          //         }
-          //       ]
-          //     }
-          // });
           thirdChartExists = true;
       }
       let minimumPeopleKilled = 0;
@@ -1366,63 +1283,6 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
           document.querySelector('.deathsHeader').style.display = 'block';
           document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-
-        //         let year2015Deaths = 0;
-        //         let year2015Civilians = 0;
-        //         let year2015Children = 0;
-
-        //         let year2016Deaths = 0;
-        //         let year2016Civilians = 0;
-        //         let year2016Children = 0;
-
-        //         let year2017Deaths = 0;
-        //         let year2017Civilians = 0;
-        //         let year2017Children = 0;
-
-        //         let year2018Deaths = 0;
-        //         let year2018Civilians = 0;
-        //         let year2018Children = 0;
-
-        //         let year2019Deaths = 0;
-        //         let year2019Civilians = 0;
-        //         let year2019Children = 0;
-
-        // let years = [];
-        // for (let i=0; i<products.length; i++) {
-        //     let currentStrikeDate = products[i].Date;
-        //     let year = currentStrikeDate.slice(6,10);
-        //     if (!years.includes(year)) {
-        //         years.push(year);
-        //     }
-        //     if (year === '2015') {
-        //         year2015Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2015Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2015Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2016') {
-        //         year2016Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2016Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2016Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2017') {
-        //         year2017Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2017Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2017Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2018') {
-        //         year2018Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2018Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2018Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2019') {
-        //         year2019Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2019Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2019Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        // }
-        // let deaths = [year2015Deaths, year2016Deaths, year2017Deaths,year2018Deaths, year2019Deaths];
-        // let civilians = [year2015Civilians, year2016Civilians, year2017Civilians,year2018Civilians, year2019Civilians];
-        // let children =  [year2015Children, year2016Children, year2017Children,year2018Children, year2019Children];
 
         window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'line',
@@ -1475,21 +1335,6 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
           ]
           },
         });
-        //   window.secondChart = new Chart(document.getElementById("secondChart"), {
-        //     type: 'doughnut',
-        //     data: {
-        //       datasets: [{
-        //         backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
-        //         borderColor: "#CE2D4F",
-        //         borderWidth: '0',
-        //         data: [minimumPeopleKilled - minimumCiviliansKilled - minimumChildrenKilled,minimumCiviliansKilled,minimumChildrenKilled]
-        //       }],
-        //       labels: ["Combatents", "Civilians", "Children"],
-        //       config: {
-        //         animateRotate: true,
-        //       }
-        //   },
-        // });
         secondChartExists = true;
       } 
       if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
@@ -1872,38 +1717,6 @@ if (country === 'pakistan') {
           ]
           },
         });
-        // window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-        //     type: 'bar',
-        //     options: {
-        //       scales: {
-        //         yAxes: [{
-        //           gridLines: {
-        //             display: true,
-        //             color: "rgba(255,99,132,0.2)"
-        //           }
-        //         }],
-        //         xAxes: [{
-        //           gridLines: {
-        //             display: false,
-        //           }
-        //         }]
-        //       },
-        //     },
-        //     data: {
-        //       labels: ["People Injured"],
-        //       datasets: [
-        //         {
-        //           label: "Minimum",
-        //           backgroundColor: "#CE2D4F",
-        //           data: [minimumPeopleInjured]
-        //         }, {
-        //           label: "Maximum",
-        //           backgroundColor: "#AB1132",
-        //           data: [maximumPeopleInjured]
-        //         }
-        //       ]
-        //     }
-        // });
         thirdChartExists = true;
     }
     let minimumPeopleKilled = 0;
@@ -1938,162 +1751,6 @@ if (country === 'pakistan') {
         document.querySelector('.deathsHeader').style.display = 'block';
         document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-
-        //         let year2004Deaths = 0;
-        //         let year2004Civilians = 0;
-        //         let year2004Children = 0;
-
-        //         let year2005Deaths = 0;
-        //         let year2005Civilians = 0;
-        //         let year2005Children = 0;
-
-        //         let year2006Deaths = 0;
-        //         let year2006Civilians = 0;
-        //         let year2006Children = 0;
-
-        //         let year2007Deaths = 0;
-        //         let year2007Civilians = 0;
-        //         let year2007Children = 0;
-
-        //         let year2008Deaths = 0;
-        //         let year2008Civilians = 0;
-        //         let year2008Children = 0;
-
-        //         let year2009Deaths = 0;
-        //         let year2009Civilians = 0;
-        //         let year2009Children = 0;
-
-        //         let year2010Deaths = 0;
-        //         let year2010Civilians = 0;
-        //         let year2010Children = 0;
-
-        //         let year2011Deaths = 0;
-        //         let year2011Civilians = 0;
-        //         let year2011Children = 0;
-
-        //         let year2012Deaths = 0;
-        //         let year2012Civilians = 0;
-        //         let year2012Children = 0;
-
-        //         let year2013Deaths = 0;
-        //         let year2013Civilians = 0;
-        //         let year2013Children = 0;
-
-        //         let year2014Deaths = 0;
-        //         let year2014Civilians = 0;
-        //         let year2014Children = 0;
-
-        //         let year2015Deaths = 0;
-        //         let year2015Civilians = 0;
-        //         let year2015Children = 0;
-
-        //         let year2016Deaths = 0;
-        //         let year2016Civilians = 0;
-        //         let year2016Children = 0;
-
-        //         let year2017Deaths = 0;
-        //         let year2017Civilians = 0;
-        //         let year2017Children = 0;
-
-        //         let year2018Deaths = 0;
-        //         let year2018Civilians = 0;
-        //         let year2018Children = 0;
-
-        //         let year2019Deaths = 0;
-        //         let year2019Civilians = 0;
-        //         let year2019Children = 0;
-
-        // let years = [];
-        // for (let i=0; i<products.length; i++) {
-        //     let currentStrikeDate = products[i].Date;
-        //     let year = currentStrikeDate.slice(6,10);
-        //     if (!years.includes(year)) {
-        //         years.push(year);
-        //     }
-        //     if (year === '2004') {
-        //         year2004Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2004Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2004Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2005') {
-        //         year2005Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2005Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2005Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2006') {
-        //       year2006Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //       year2006Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //       year2006Children += parseInt(products[i]["Maximum children reported killed"]);
-        //   }
-        //   if (year === '2007') {
-        //     year2007Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //     year2007Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //     year2007Children += parseInt(products[i]["Maximum children reported killed"]);
-        //    }  
-        //    if (year === '2008') {
-        //     year2008Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //     year2008Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //     year2008Children += parseInt(products[i]["Maximum children reported killed"]);
-        //    }  
-        //     if (year === '2009') {
-        //         year2009Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2009Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2009Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2010') {
-        //         year2010Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2010Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2010Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2011') {
-        //         year2011Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2011Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2011Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2012') {
-        //         year2012Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2012Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2012Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2013') {
-        //         year2013Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2013Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2013Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2014') {
-        //         year2014Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2014Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2014Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2015') {
-        //         year2015Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2015Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2015Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2016') {
-        //         year2016Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2016Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2016Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2017') {
-        //         year2017Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2017Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2017Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2018') {
-        //         year2018Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2018Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2018Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        //     if (year === '2019') {
-        //         year2019Deaths += parseInt(products[i]["Maximum total people killed"]);
-        //         year2019Civilians += parseInt(products[i]["Maximum civilians reported killed"]);
-        //         year2019Children += parseInt(products[i]["Maximum children reported killed"]);
-        //     }
-        // }
-        // let deaths = [year2004Deaths, year2005Deaths, year2006Deaths, year2007Deaths, year2008Deaths, year2009Deaths, year2010Deaths, year2011Deaths, year2012Deaths, year2013Deaths, year2014Deaths, year2015Deaths, year2016Deaths, year2017Deaths,year2018Deaths, year2019Deaths];
-        // let civilians = [year2004Civilians, year2005Civilians, year2006Civilians, year2007Civilians, year2008Civilians, year2009Civilians, year2010Civilians, year2011Civilians, year2012Civilians, year2013Civilians, year2014Civilians, year2015Civilians, year2016Civilians, year2017Civilians,year2018Civilians, year2019Civilians];
-        // let children = [year2004Children, year2005Children, year2006Children, year2007Children, year2008Children,year2009Children, year2010Children, year2011Children, year2012Children, year2013Children, year2014Children, year2015Children, year2016Children, year2017Children,year2018Children, year2019Children];
 
         window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'line',
@@ -2146,18 +1803,7 @@ if (country === 'pakistan') {
           ]
           },
         });
-      //   window.secondChart = new Chart(document.getElementById("secondChart"), {
-      //     type: 'doughnut',
-      //     data: {
-      //       datasets: [{
-      //         backgroundColor: ["#CE2D4F",'#9C1933', '#4E0D1A'],
-      //         borderColor: "#CE2D4F",
-      //         borderWidth: '0',
-      //         data: [minimumPeopleKilled - minimumChildrenKilled - minimumCiviliansKilled,minimumCiviliansKilled,minimumChildrenKilled]
-      //       }],
-      //       labels: ["Combatents", "Civilians", "Children"]
-      //   },
-      // });
+
       secondChartExists = true;
     } 
     if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
