@@ -280,7 +280,6 @@ button.addEventListener('click', (e) => {
           year2013MaxInjuries,year2014MaxInjuries,year2015MaxInjuries,
           year2016MaxInjuries,year2017MaxInjuries,year2018MaxInjuries,year2019MaxInjuries];
 
-          console.log('years: ', years)
             if (displayNumberOfStrikes) { // checks if the display strikes checkbox is checked
                 
                 for (let i=0; i<products.length; i++) {
@@ -481,15 +480,6 @@ button.addEventListener('click', (e) => {
                 document.querySelector('.deathsHeader').style.display = 'block';
                 document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
-                
-                
-        console.log('years:', years);
-        console.log('minimumInjures yemen: ',minimumInjuries);
-        console.log('maximumInjures yemen: ',maximumInjuries);
-
-        console.log('deaths: ', deaths);
-        console.log('civilians: ', civilians);
-        console.log('children: ', children);
 
         window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'line',
@@ -1054,9 +1044,10 @@ button.addEventListener('click', (e) => {
             resetBoard()
           }
         })
-        // .catch(function(err) {
-        //   console.log('Fetch problem: ' + err.message);
-        // });
+
+        .catch(function(err) {
+          console.log('Fetch problem: ' + err.message);
+        });
   }
   if (country === 'afghanistan') {
     fetch(`json/afghanistanStrikes.json`).then(function(response) {
@@ -1433,11 +1424,6 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
         // let civilians = [year2015Civilians, year2016Civilians, year2017Civilians,year2018Civilians, year2019Civilians];
         // let children =  [year2015Children, year2016Children, year2017Children,year2018Children, year2019Children];
 
-        // console.log('afghanistan years:', years)
-        // console.log('deaths: ', deaths);
-        // console.log('civilians: ', civilians);
-        // console.log('children: ', children);
-
         window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'line',
           options: {
@@ -1510,9 +1496,9 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
         resetBoard()
       }
     })
-    // .catch(function(err) {
-    //   console.log('Fetch problem: ' + err.message);
-    // });
+    .catch(function(err) {
+      console.log('Fetch problem: ' + err.message);
+    });
 
 }
 if (country === 'pakistan') {
@@ -1758,8 +1744,8 @@ if (country === 'pakistan') {
     let maximumInjuries = [year2004MaxInjuries, year2005MaxInjuries, year2006MaxInjuries,year2007MaxInjuries,year2008MaxInjuries,year2009MaxInjuries,year2010MaxInjuries, year2011MaxInjuries,year2012MaxInjuries,
       year2013MaxInjuries,year2014MaxInjuries,year2015MaxInjuries,
       year2016MaxInjuries,year2017MaxInjuries,year2018MaxInjuries];
-    console.log('pakistan years: ', years)
-    if (displayNumberOfStrikes) {
+
+      if (displayNumberOfStrikes) {
         
         for (let i=0; i<products.length; i++) {
             minimumStrikes += parseInt(products[i]['Minimum strikes']);
@@ -2109,11 +2095,6 @@ if (country === 'pakistan') {
         // let civilians = [year2004Civilians, year2005Civilians, year2006Civilians, year2007Civilians, year2008Civilians, year2009Civilians, year2010Civilians, year2011Civilians, year2012Civilians, year2013Civilians, year2014Civilians, year2015Civilians, year2016Civilians, year2017Civilians,year2018Civilians, year2019Civilians];
         // let children = [year2004Children, year2005Children, year2006Children, year2007Children, year2008Children,year2009Children, year2010Children, year2011Children, year2012Children, year2013Children, year2014Children, year2015Children, year2016Children, year2017Children,year2018Children, year2019Children];
 
-        // console.log('pakistan years:', years)
-        // console.log('deaths: ', deaths);
-        // console.log('civilians: ', civilians);
-        // console.log('children: ', children);
-
         window.secondChart = new Chart(document.getElementById("secondChart"), {
           type: 'line',
           options: {
@@ -2183,13 +2164,9 @@ if (country === 'pakistan') {
       resetBoard()
     }
   })
-  // .catch(function(err) {
-  //   console.log('Fetch problem: ' + err.message);
-  // });
+  .catch(function(err) {
+    console.log('Fetch problem: ' + err.message);
+  });
 
 }
-  
-  // else {
-  //     console.log('country: ', country)
-  //   }
 });
