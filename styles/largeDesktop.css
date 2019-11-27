@@ -1,0 +1,12 @@
+@media screen and (min-width: 1900px) {
+    .dashboard {
+        width: 80%!important;
+        margin-top:2%;
+        margin-left: 10%!important;
+        display: flex;
+        flex-basis: 100%;
+        flex-direction: row;
+        border: 3px solid #211A1E;
+        box-shadow: 15px 15px #211A1E;
+    }
+}

@@ -1,6 +1,8 @@
 const button = document.querySelector('button');
+
 let submitValue;
-let products;
+let products; // contains json data
+
 let firstChartExists = false;
 let secondChartExists = false;
 let thirdChartExists = false;
@@ -52,9 +54,9 @@ const resetBoard = () => {
   window.secondChart.destroy();
   window.thirdChart.destroy();
   document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
-  document.querySelector('.displayStrikes').innerHTML = `11,928`;
-  document.querySelector('.displayDeaths').innerHTML = `9,331 - 16,959`;
-  document.querySelector('.displayCivilians').innerHTML = `917 - 1,995`;
+  document.querySelector('.displayStrikes').innerHTML = `11928`;
+  document.querySelector('.displayDeaths').innerHTML = `9331 - 16959`;
+  document.querySelector('.displayCivilians').innerHTML = `917 - 1995`;
   document.querySelector('.displayChildren').innerHTML = `286 - 457`;
   window.scroll(0,findPos(document.getElementById("title")));
   firstChartExists = false;
@@ -70,6 +72,7 @@ clearButton.addEventListener('click', resetBoard);
 returnToDashboard.addEventListener('click', resetBoard);
 
 button.addEventListener('click', (e) => {
+    window.scrollBy(0, 800);    
     destroyExistingCharts();
     getDataFromForm();
     if (country === 'yemen') {
@@ -85,7 +88,7 @@ button.addEventListener('click', (e) => {
             let displayMinimumCivilians = 0;
             let displayMaximumChildren = 0;
             let displayMinimumChildren = 0;
-            for (let i=0; i<products.length; i++) {
+            for (let i=0; i<products.length; i++) { 
               displayMaximumStrikes += parseInt(products[i]['Maximum number of strikes']);
               displayMaximumDeaths += parseInt(products[i]["Maximum people killed"]);
               displayMinimumDeaths += parseInt(products[i]["Minimum people killed"]);
@@ -103,13 +106,12 @@ button.addEventListener('click', (e) => {
             let maximumStrikes = 0;
 
             
-            if (displayNumberOfStrikes) {
+            if (displayNumberOfStrikes) { // checks if the display strikes checkbox is checked
                 
                 for (let i=0; i<products.length; i++) {
                     minimumStrikes += parseInt(products[i]['Minimum number of strikes']);
                     maximumStrikes += parseInt(products[i]['Maximum number of strikes']);
-                }
-              
+                } 
                 if (displayPeopleKilled) {
                     document.querySelector('#secondChart').style.display = "flex";
                 } else {
@@ -126,7 +128,7 @@ button.addEventListener('click', (e) => {
                     document.querySelector('#firstChart').style.display = "flex";
                     document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                     document.querySelector('.strikesHeader').style.display = 'block';
-                    document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
+                    document.querySelector('.strikesHeader').innerHTML = `confirmed strikes: ${minimumStrikes} - ${maximumStrikes}`;
 
                     window.firstChart = new Chart(document.getElementById("firstChart"), {
                     type: 'line',
@@ -150,7 +152,7 @@ button.addEventListener('click', (e) => {
                       labels: [2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
                       datasets: [{ 
                           data: [1, 0, 0,0, 0, 0, 0, 0, 0, 3, 2, 41, 20, 32, 21, 40, 130, 37],
-                          label: "Number Of Drone Strikes",
+                          label: "Drone Strikes by Year",
                           borderColor: "#CE2D4F",
                           fill: true,
                           pointHoverBackgroundColor: '#CE2D4F',
@@ -257,7 +259,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('#secondChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';   
                 document.querySelector('.deathsHeader').style.display = 'block';
-                document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
+                document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                 
                 let year2002Deaths = 0;
@@ -538,7 +540,7 @@ button.addEventListener('click', (e) => {
                     labels: [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
                     datasets: [{ 
                         data: [5,3,1,0,5,3,2,1,3,11,14,35,45,52],
-                        label: "Number Of Drone Strikes",
+                        label: "Drone Strikes by Year",
                         borderColor: "#CE2D4F",
                         fill: true,
                         pointHoverBackgroundColor: '#CE2D4F',
@@ -641,7 +643,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('#secondChart').style.display = "flex";
               document.querySelector('.chartInformation').style.display = 'flex';   
               document.querySelector('.deathsHeader').style.display = 'block';
-              document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
+              document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
                 let year2007Deaths = 0;
@@ -947,7 +949,7 @@ button.addEventListener('click', (e) => {
                     398,307,358,387,212,10,25,14,9,9,14,18,20,105,8,
                     39,465,392,495,411,368,265,301,683,719,568,
                     537,810,1113],
-                    label: "Number Of Drone Strikes",
+                    label: "Drone Strikes by Year",
                     borderColor: "#CE2D4F",
                     pointHoverBackgroundColor: '#CE2D4F',
                     pointRadius: 5,
@@ -1050,7 +1052,7 @@ button.addEventListener('click', (e) => {
           document.querySelector('#secondChart').style.display = "flex";
           document.querySelector('.chartInformation').style.display = 'flex';   
           document.querySelector('.deathsHeader').style.display = 'block';
-          document.querySelector('.deathsHeader').innerHTML = `minimum peopled killed: ${minimumPeopleKilled}`;
+          document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
                 let year2015Deaths = 0;
@@ -1246,7 +1248,7 @@ if (country === 'pakistan') {
             document.querySelector('#firstChart').style.display = "flex";
             document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
             document.querySelector('.strikesHeader').style.display = 'block';
-            document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: 5,888`;
+            document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${products.length}`;
         window.firstChart = new Chart(document.getElementById("firstChart"), {
             type: 'line',
             options: {
@@ -1269,7 +1271,7 @@ if (country === 'pakistan') {
               labels: [2004,2005,2006,2007,2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018],
               datasets: [{ 
                   data: [1,3,2,5,38,54,128,75,50,27,25,13,3,5,1],
-                  label: "Number Of Drone Strikes",
+                  label: "Drone Strikes by Year",
                   borderColor: "#CE2D4F",
                   fill: true,
                   pointHoverBackgroundColor: '#CE2D4F',
@@ -1371,7 +1373,7 @@ if (country === 'pakistan') {
         document.querySelector('#secondChart').style.display = "flex";
         document.querySelector('.chartInformation').style.display = 'flex';   
         document.querySelector('.deathsHeader').style.display = 'block';
-        document.querySelector('.deathsHeader').innerHTML = `Deaths: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
+        document.querySelector('.deathsHeader').innerHTML = `casualties: ${minimumPeopleKilled} - ${maximumPeopleKilled}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
                 let year2004Deaths = 0;
@@ -1613,5 +1615,4 @@ if (country === 'pakistan') {
   // else {
   //     console.log('country: ', country)
   //   }
-    window.scrollBy(0, 800);
 });
