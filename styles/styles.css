@@ -73,6 +73,9 @@ body {
 .currentStatistics .last{
     padding-bottom: 40px;
 }
+#last {
+    margin-bottom: 20px;
+}
 .sectionHeader {
     margin-left: 10%;
     margin-top: 5%;
