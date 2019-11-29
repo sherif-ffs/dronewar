@@ -415,38 +415,6 @@ button.addEventListener('click', (e) => {
                   ]
                   },
                 });
-                // window.thirdChart = new Chart(document.getElementById("thirdChart"), {
-                //     type: 'bar',
-                //     options: {
-                //       scales: {
-                //         yAxes: [{
-                //           gridLines: {
-                //             display: true,
-                //             color: "rgba(255,99,132,0.2)"
-                //           }
-                //         }],
-                //         xAxes: [{
-                //           gridLines: {
-                //             display: false,
-                //           }
-                //         }]
-                //       },
-                //     },
-                //     data: {
-                //       labels: ["Peopled Injured"],
-                //       datasets: [
-                //         {
-                //           label: "Minimum",
-                //           backgroundColor: "#CE2D4F",
-                //           data: [minimumPeopleInjured]
-                //         }, {
-                //           label: "Maximum",
-                //           backgroundColor: "#AB1132",
-                //           data: [maximumPeopleInjured]
-                //         }
-                //       ]
-                //     }
-                // });
                 thirdChartExists = true;
             }
             let minimumPeopleKilled = 0;
