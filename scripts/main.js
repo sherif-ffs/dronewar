@@ -368,7 +368,7 @@ button.addEventListener('click', (e) => {
                 document.querySelector('#thirdChart').style.display = "flex";
                 document.querySelector('.chartInformation').style.display = 'flex';
                 document.querySelector('.injuriesHeader').style.display = "block";
-                document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+                document.querySelector('.injuriesHeader').innerHTML = `people injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
                 document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
 
@@ -781,7 +781,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('#firstChart').style.display = "flex";
                   document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
                   document.querySelector('.strikesHeader').style.display = 'block';
-                  document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${maximumStrikes}`;
+                  document.querySelector('.strikesHeader').innerHTML = `confirmed strikes: ${maximumStrikes}`;
                   window.firstChart = new Chart(document.getElementById("firstChart"), {
                   type: 'line',
                   options: {
@@ -840,7 +840,7 @@ button.addEventListener('click', (e) => {
               document.querySelector('#thirdChart').style.display = "flex";
               document.querySelector('.chartInformation').style.display = 'flex';
               document.querySelector('.injuriesHeader').style.display = "block";
-              document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+              document.querySelector('.injuriesHeader').innerHTML = `people injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
               document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
               window.thirdChart = new Chart(document.getElementById("thirdChart"), {
@@ -1190,7 +1190,7 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
           document.querySelector('#thirdChart').style.display = "flex";
           document.querySelector('.chartInformation').style.display = 'flex';
           document.querySelector('.injuriesHeader').style.display = "block";
-          document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+          document.querySelector('.injuriesHeader').innerHTML = `people injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
           document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
           window.thirdChart = new Chart(document.getElementById("thirdChart"), {
             type: 'line',
@@ -1598,7 +1598,7 @@ if (country === 'pakistan') {
             document.querySelector('#firstChart').style.display = "flex";
             document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
             document.querySelector('.strikesHeader').style.display = 'block';
-            document.querySelector('.strikesHeader').innerHTML = `Confirmed Strikes: ${products.length}`;
+            document.querySelector('.strikesHeader').innerHTML = `confirmed strikes: ${products.length}`;
         window.firstChart = new Chart(document.getElementById("firstChart"), {
             type: 'line',
             options: {
@@ -1657,7 +1657,7 @@ if (country === 'pakistan') {
         document.querySelector('#thirdChart').style.display = "flex";
         document.querySelector('.chartInformation').style.display = 'flex';
         document.querySelector('.injuriesHeader').style.display = "block";
-        document.querySelector('.injuriesHeader').innerHTML = `People Injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
+        document.querySelector('.injuriesHeader').innerHTML = `people injured ${minimumPeopleInjured} - ${maximumPeopleInjured}`;
         document.querySelector('.chartH2').innerHTML = `drone strike data in ${country}`;
 
         window.thirdChart = new Chart(document.getElementById("thirdChart"), {

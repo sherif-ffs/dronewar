@@ -5,7 +5,6 @@ const somaliaImage = document.querySelector('.somalia');
 
 const droneImages = document.querySelectorAll('.droneImg');
 const droneImageContainer = document.querySelector('.droneImage');
-console.log('droneImages: ', droneImages);
 
 droneImages.forEach((droneImage) => {
   droneImage.addEventListener('mouseenter', () => {
