@@ -6,8 +6,8 @@ historical data about every reported covert united states drone strike
 ![Screenshot_2019-11-22 The Drone Program](https://user-images.githubusercontent.com/46908343/69889847-1ba4e180-12c1-11ea-8e11-8c271a68c86f.png)
 
 <h1>Example Chart</h1>
-
-window.thirdChart = new Chart(document.getElementById("thirdChart"), {
+ ```
+ window.thirdChart = new Chart(document.getElementById("thirdChart"), {
           type: 'line',
           options: {
             title: {
@@ -50,3 +50,5 @@ window.thirdChart = new Chart(document.getElementById("thirdChart"), {
           ]
           },
         });
+        
+        ```
