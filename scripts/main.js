@@ -328,7 +328,7 @@ button.addEventListener('click', (e) => {
                       // labels: years,
                       datasets: [{ 
                           data: [1, 0, 0,0, 0, 0, 0, 0, 0, 3, 2, 41, 20, 32, 21, 40, 130, 37],
-                          label: "Drone Strikes by Year",
+                          label: "Drone Strikes",
                           borderColor: "#CE2D4F",
                           fill: true,
                           pointHoverBackgroundColor: '#CE2D4F',
@@ -379,31 +379,17 @@ button.addEventListener('click', (e) => {
                       display: true,
                       text: `Casualties in ${country}`
                     },
-                    // legend: {
-                    //   labels: {
-                    //       // This more specific font property overrides the global property
-                    //       fontColor: '#CE2D4F',
-                    //       defaultFontFamily: "Avenir",
-                    //       defaultFontSize: 20
-                    //   }
-                    // },
                     scales: {
                       yAxes: [{
                         gridLines: {
                           display: true,
                           color: "rgba(255,99,132,0.2)"
                         },
-                        ticks: {
-                          // fontSize: 20
-                        }
                       }],
                       xAxes: [{
                         gridLines: {
                           display: false,
                         },
-                        ticks: {
-                          // fontSize: 20
-                        }
                       }]
                     },
                   },
@@ -818,7 +804,7 @@ button.addEventListener('click', (e) => {
                     labels: [2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
                     datasets: [{ 
                         data: [5,3,1,0,5,3,2,1,3,11,14,35,45,52],
-                        label: "Drone Strikes by Year",
+                        label: "Drone Strikes",
                         borderColor: "#CE2D4F",
                         fill: true,
                         pointHoverBackgroundColor: '#CE2D4F',
@@ -1167,7 +1153,7 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
                     398,307,358,387,212,10,25,14,9,9,14,18,20,105,8,
                     39,465,392,495,411,368,265,301,683,719,568,
                     537,810,1113],
-                    label: "Drone Strikes by Year",
+                    label: "Drone Strikes",
                     borderColor: "#CE2D4F",
                     pointHoverBackgroundColor: '#CE2D4F',
                     pointRadius: 5,
@@ -1635,7 +1621,7 @@ if (country === 'pakistan') {
               labels: [2004,2005,2006,2007,2008, 2009, 2010,2011,2012,2013,2014,2015,2016,2017,2018],
               datasets: [{ 
                   data: [1,3,2,5,38,54,128,75,50,27,25,13,3,5,1],
-                  label: "Drone Strikes by Year",
+                  label: "Drone Strikes",
                   borderColor: "#CE2D4F",
                   fill: true,
                   pointHoverBackgroundColor: '#CE2D4F',
