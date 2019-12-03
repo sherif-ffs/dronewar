@@ -76,7 +76,9 @@ button.addEventListener('click', (e) => {
     window.scrollBy(0, 800);    
     destroyExistingCharts();
     getDataFromForm();
+    
     if (country === 'yemen') {
+      document.querySelector('.chartInformation').style.backgroundColor = 'red';
         fetch(`json/yemenStrikes.json`).then(function(response) {
             return response.json();
           })
@@ -506,6 +508,8 @@ button.addEventListener('click', (e) => {
     if (!displayNumberOfStrikes && !displayPeopleInjured && !displayPeopleKilled) {
       resetBoard()
     }
+    document.querySelector('.chartInformation').style.backgroundColor = '#222';
+
     }
           )}
     if (country === 'somalia') {
