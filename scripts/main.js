@@ -957,6 +957,7 @@ button.addEventListener('click', (e) => {
         });
   }
   if (country === 'afghanistan') {
+    document.querySelector('.chartInformation').style.backgroundColor = 'red';
     fetch(`json/afghanistanStrikes.json`).then(function(response) {
         return response.json();
       })
@@ -1302,6 +1303,7 @@ let maximumInjuries = [year2015MaxInjuries,year2016MaxInjuries,year2017MaxInjuri
     .catch(function(err) {
       console.log('Fetch problem: ' + err.message);
     });
+    document.querySelector('.chartInformation').style.backgroundColor = '#222';
 
 }
 if (country === 'pakistan') {
