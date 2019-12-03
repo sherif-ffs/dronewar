@@ -15,7 +15,7 @@
     text-decoration: none!important;
 }
 .name {
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fafafa;
@@ -43,7 +43,7 @@
 }
 .githubText {
     margin: auto;
-    font-family: Avenir;
+    font-family: Avenir, proxima-nova, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fafafa!important;
