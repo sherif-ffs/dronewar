@@ -13,9 +13,10 @@ let yemenIsActive = false;
 let afghanistanIsActive = false;
 let pakistanIsActive = false;
 
-
+var table
 const tableHeader = document.querySelector('.tableHeader');
 const clearTables = document.querySelectorAll('.clearTable');
+
 
 clearTables.forEach((table) => {
   table.addEventListener('click', () => {
@@ -24,7 +25,16 @@ clearTables.forEach((table) => {
   tableContainer.style.display = 'none';   
    }, 500);
    clearTables.forEach((table) => {
-     table.style.display ='none'
+     table.style.display ='none';
+    table = document.getElementById('myTable');
+    console.log('table: ', table);
+    console.log('table: ', table.hasChildNodes)
+
+    while(table.hasChildNodes())
+    {
+        table.removeChild(table.firstChild);
+    }
+    console.log('table: ', table.hasChildNodes)
    })
   })
 })
@@ -38,10 +48,13 @@ yemen.addEventListener('click', () => {
       if (this.readyState == 4 && this.status == 200) {
         yemenStrikesForTable = JSON.parse(this.responseText);
         let droneStrikesData = yemenStrikesForTable.yemen;
+        table = document.getElementById('myTable');
+
+        console.log('yemenTable: ', table)
         for (let i=0; i  <droneStrikesData.length; i++) {
   
           let currentObject = droneStrikesData[i];
-          const table = document.querySelector('.table')
+          // const table = document.querySelector('.table')
           var row = table.insertRow(i);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -71,7 +84,15 @@ yemen.addEventListener('click', () => {
         tableContainer.style.display = 'none';   
         }, 500);
       clearTables.forEach((table) => {
-        table.style.display ='none'
+        // var elmtTable = document.getElementById('myTable');
+        // elmtTable.innerHTML = "";
+        table.style.display ='none';
+        
+        
+        
+        // for (var x=rowCount-1; x>0; x--) {
+        //    elmtTable.removeChild(tableRows[x]);
+        // }
       })
       yemenIsActive = false;
   }
@@ -86,7 +107,8 @@ afghanistan.addEventListener('click', () => {
         let droneStrikesData = afghanistanStrikesForTable.afghanistan;
         for (let i=0; i  <droneStrikesData.length; i++) {
           let currentObject = droneStrikesData[i];
-          const table = document.querySelector('.table')
+          // const table = document.querySelector('.table')
+          table = document.getElementById('myTable');
           var row = table.insertRow(i);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -131,7 +153,9 @@ pakistan.addEventListener('click', () => {
         let droneStrikesData = pakistanStrikesForTable.pakistan;
         for (let i=0; i  <droneStrikesData.length; i++) {
           let currentObject = droneStrikesData[i];
-          const table = document.querySelector('.table')
+          // const table = document.querySelector('.table')
+          table = document.getElementById('myTable');
+
           var row = table.insertRow(i);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -175,7 +199,9 @@ somalia.addEventListener('click', () => {
           let droneStrikesData = somaliaStrikesForTable.somalia;
           for (let i=0; i  <droneStrikesData.length; i++) {
             let currentObject = droneStrikesData[i];
-            const table = document.querySelector('.table')
+            // const table = document.querySelector('.table')
+            table = document.getElementById('myTable');
+
             var row = table.insertRow(i);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
