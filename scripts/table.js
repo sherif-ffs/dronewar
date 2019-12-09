@@ -82,17 +82,16 @@ yemen.addEventListener('click', () => {
     window.scrollBy(0, -600);
       setTimeout(function(){ 
         tableContainer.style.display = 'none';   
+        while(table.hasChildNodes())
+        {
+            table.removeChild(table.firstChild);
+        }
         }, 500);
       clearTables.forEach((table) => {
         // var elmtTable = document.getElementById('myTable');
         // elmtTable.innerHTML = "";
         table.style.display ='none';
-        
-        
-        
-        // for (var x=rowCount-1; x>0; x--) {
-        //    elmtTable.removeChild(tableRows[x]);
-        // }
+
       })
       yemenIsActive = false;
   }
@@ -134,7 +133,11 @@ afghanistan.addEventListener('click', () => {
   } else {
     window.scrollBy(0, -600);
       setTimeout(function(){ 
-        tableContainer.style.display = 'none';   
+        tableContainer.style.display = 'none';  
+        while(table.hasChildNodes())
+        {
+            table.removeChild(table.firstChild);
+        } 
         }, 500);
       clearTables.forEach((table) => {
         table.style.display ='none'
@@ -182,6 +185,10 @@ pakistan.addEventListener('click', () => {
     window.scrollBy(0, -600);
       setTimeout(function(){ 
         tableContainer.style.display = 'none';   
+        while(table.hasChildNodes())
+        {
+            table.removeChild(table.firstChild);
+        }
         }, 500);
       clearTables.forEach((table) => {
         table.style.display ='none'
@@ -228,6 +235,10 @@ somalia.addEventListener('click', () => {
       window.scrollBy(0, -600);
       setTimeout(function(){ 
         tableContainer.style.display = 'none';   
+        while(table.hasChildNodes())
+        {
+            table.removeChild(table.firstChild);
+        }
         }, 500);
       clearTables.forEach((table) => {
         table.style.display ='none'
