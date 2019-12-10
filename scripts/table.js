@@ -42,6 +42,12 @@ clearTables.forEach((table) => {
 
 
 yemen.addEventListener('click', () => {
+  if (table) {
+    while(table.hasChildNodes())
+    {
+        table.removeChild(table.firstChild);
+    }
+  }
   if (!yemenIsActive) {
     tableContainer.style.display = 'block';
     xmlhttps.onreadystatechange = function() {
@@ -98,6 +104,12 @@ yemen.addEventListener('click', () => {
 })
  
 afghanistan.addEventListener('click', () => {
+  if (table) {
+    while(table.hasChildNodes())
+    {
+        table.removeChild(table.firstChild);
+    }
+  }
   if (!afghanistanIsActive) {
     tableContainer.style.display = 'block';
     xmlhttps.onreadystatechange = function() {
@@ -148,6 +160,12 @@ afghanistan.addEventListener('click', () => {
 })
 
 pakistan.addEventListener('click', () => {
+  if (table) {
+    while(table.hasChildNodes())
+    {
+        table.removeChild(table.firstChild);
+    }
+  }
   if (!pakistanIsActive) {
     tableContainer.style.display = 'block';
     xmlhttps.onreadystatechange = function() {
@@ -198,6 +216,12 @@ pakistan.addEventListener('click', () => {
 })
 
 somalia.addEventListener('click', () => {
+  if (table) {
+    while(table.hasChildNodes())
+    {
+        table.removeChild(table.firstChild);
+    }
+  }
   if (!somaliaIsActive) {
     tableContainer.style.display = 'block';
       xmlhttps.onreadystatechange = function() {
