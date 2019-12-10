@@ -22,17 +22,26 @@ function findPos(obj) {
 }
 
 const destroyExistingCharts = () => {
-  if (secondChartExists) {
-    window.secondChart.destroy();
-    secondChartExists = false;
-  }
-  if (thirdChartExists) {
-    window.thirdChart.destroy();
-    thirdChartExists = false;
-  }
+ 
   if (firstChartExists) {
     window.firstChart.destroy();
+    console.log('firstChart: ', firstChart)
     firstChartExists = false;
+  } else {
+    console.log('chart does not exist');
+  }
+  // if (secondChartExists) {
+  //   window.secondChart.destroy();
+  //   secondChartExists = false;
+  // } else {
+  //   console.log('chart does not exist');
+  // }
+  if (thirdChartExists) {
+    window.thirdChart.destroy();
+    console.log(`${thirdChart} is destroyed`);
+    thirdChartExists = false;
+  } else {
+    console.log('chart does not exist');
   }
 }
 
@@ -51,9 +60,10 @@ const resetBoard = () => {
   document.querySelector('.strikesHeader').style.display = "none";
   document.querySelector('.deathsHeader').style.display = "none";
   document.querySelector('.injuriesHeader').style.display = "none";
-  window.firstChart.destroy();
-  window.secondChart.destroy();
-  window.thirdChart.destroy();
+  destroyExistingCharts();
+  // window.firstChart.destroy();
+  // window.secondChart.destroy();
+  // window.thirdChart.destroy();
   document.querySelector('.sectionHeader').innerHTML =`current statistics overall`;
   document.querySelector('.displayStrikes').innerHTML = `11928`;
   document.querySelector('.displayDeaths').innerHTML = `9331 - 16959`;
@@ -76,7 +86,6 @@ button.addEventListener('click', (e) => {
     window.scrollBy(0, 800);    
     destroyExistingCharts();
     getDataFromForm();
-    
     if (country === 'yemen') {
       document.querySelector('.chartInformation').style.backgroundColor = 'red';
         fetch(`json/yemenStrikes.json`).then(function(response) {
@@ -739,7 +748,7 @@ button.addEventListener('click', (e) => {
                   document.querySelector('#secondChart').style.display = "flex";
               } else {
                   document.querySelector('#secondChart').style.display = "none";
-                  secondChart.destroy();
+                  // secondChart.destroy();
                   document.querySelector('.deathsHeader').style.display = "none"
               }
               if (displayPeopleInjured) {
@@ -747,7 +756,7 @@ button.addEventListener('click', (e) => {
               } else {
                   document.querySelector('.injuriesHeader').style.display = "none";
                   document.querySelector('#thirdChart').style.display = "none";
-                  thirdChart.destroy()
+                  // thirdChart.destroy()
               }
                   document.querySelector('.chartInformation').style.display = 'flex';
                   document.querySelector('#firstChart').style.display = "flex";
@@ -952,9 +961,9 @@ button.addEventListener('click', (e) => {
           }
         })
 
-        .catch(function(err) {
-          console.log('Fetch problem: ' + err.message);
-        });
+        // .catch(function(err) {
+        //   console.log('Fetch problem: ' + err.message);
+        // });
   }
   if (country === 'afghanistan') {
     document.querySelector('.chartInformation').style.backgroundColor = 'red';
