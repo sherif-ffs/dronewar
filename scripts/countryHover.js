@@ -8,8 +8,7 @@ const droneImageContainer = document.querySelector('.droneImage');
 
 droneImages.forEach((droneImage) => {
   droneImage.addEventListener('mouseenter', () => {
-    droneImage.style.opacity = '1';
-    droneImage.src = 'assets/droneColor.svg';
+    droneImage.style.opacity = '.6';
   })
   droneImage.addEventListener('mouseleave', () => {
     droneImage.style.opacity = '.1';
